@@ -13,3 +13,475 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+body{
+    background: url(/assets/city-background.jpg);
+    }
+
+.not-signed-in {
+    background: none;
+}
+
+
+.navbar-custom > li{
+    line-height: 45px;
+}
+
+.navbar-ul {
+    display: flex;
+}
+
+.logo-nav {
+    margin-left: auto;
+    right: 2%;
+    width: 15%;
+}
+
+.logo-nav > h1 {
+    width: 45%;
+}
+
+.error-messages {
+    width: 50%;
+    top:0;
+    position: absolute;
+    background: #647377;
+    color: white;
+}
+
+.carousel-inner .item{
+    min-height: 650px;
+    max-height: 650px;
+}
+
+.navbar-custom{
+    color: #FFFFFF;
+    background-color: #DDE2E2;
+    border-radius: 0;
+    margin-bottom: auto;
+}
+
+.sensitive-change {
+	font-weight: bold;
+}
+
+.label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: left;
+    height: 22%;
+    margin-bottom: -1.5%;
+    background-color: rgba(0,0,0,0.75);
+    padding: 1%;
+    font-size: 0.8em;  
+}
+
+.sign-up-button {
+    width: 15%;
+    margin-top: -1% !important;
+    height: 35%;
+    font-size: 2em;
+}
+
+.join-page {
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 100%;
+
+}
+
+.join-page h1{
+    text-align: center;
+}
+
+.join-field {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 1%;
+}
+
+.join-field label, input {
+    text-align: left;
+    width: 50%;
+}
+
+.sign-up-submitt-button{
+    text-align: center;
+}
+
+.carousel-h1 {
+    margin-top: -5px;
+    margin-bottom: 5px;
+    color:#B3BABD;
+}
+
+.carousel p  {
+    color:silver;
+    font-size: 1.5em;
+}
+
+.car-div {
+    height: 110px;
+    margin-top: -15%;
+    background-color: rgba(0,0,0,0.75);
+}
+
+.btn-large {
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.navbar-brand {
+    float: right;
+    margin-right: 105px;
+}
+
+.navbar-img {
+    width: 95px;
+    float: right;
+    position: absolute;
+    top: 2px;
+    border-radius: 12px;
+}
+
+.navbar-h1 {
+    float: right;
+    color:#4E4A4A;
+    font-weight: lighter;
+}
+
+.instructions-container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 70%;
+}
+
+.span4{
+    width: 30%;
+
+}
+
+.inner-instructions {
+    padding-bottom: 40px;
+    font-size: 1.5em;
+}
+
+.span  > h2{
+    font-size: 2em;
+    
+} 
+
+.span  > p {
+    color: #2A8EA5;
+}
+
+.jumbotron-container {
+    width: 100%;
+}
+
+.join-jumbotron {
+    background: url("/assets/background.jpg");
+    color: #FFF;
+    padding: 10px;
+    
+    text-align: center;
+}
+
+.join-btn{
+    width: 150px;
+    font-size: 1.2em
+}
+
+.user-pic {
+    margin-top: 10px;
+    width: 100px;
+    display: inline-block;
+    border-radius: 50px
+}
+
+.search-area {
+    margin-top: 0;
+    width: 100%;
+    background: url("/assets/bike-background.jpg");
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+.form-inline > .form-group {
+    vertical-align: top;
+}
+
+.search-input {
+    width: 200px;
+}
+#map {
+    border-radius: 35px;
+    width: 700px;
+    height: 500px;
+    margin: 0 auto;
+    margin-bottom: 20px;    
+}
+
+.search-labels {
+    width: 700px;
+    background-color: transparent;
+    font-style: oblique;
+    color: #757582;
+    color:black;
+    opacity: 0.9;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 0;    
+}
+
+.search-labels h1,h2{
+    font-weight: lighter;
+}
+
+.search-area {
+    margin-top: 0;
+}
+
+.settings-container {
+    width: 80%;
+    margin-top: 4%;
+}
+
+.settings-container input {
+    width: 100%;
+}
+.settings-buttons {
+    width: 30% !important;
+}
+
+.show-user-container {
+    width: 100%;
+    text-align: center;
+    opacity: 0.9;
+    margin-bottom: 3%;
+    
+}
+
+.header-row, .drop-show-p {
+    font-weight: 200;
+}
+
+.toggle {
+    cursor: pointer;
+}
+
+.show-user-row{
+    width: 100%;
+    margin: 0 auto;
+    float: left;
+    font-weight: 200;
+}
+.calendar{
+    float: right;
+    height: 200px !important;
+}
+
+.show-user-row {
+    background-color: lightgrey;
+
+}
+.show-user-header{
+    background-color: #988B8B;
+    margin-top: 0;
+    padding: 2%;
+}
+
+.has-content {
+    background: green;
+    color: white;
+    padding: 2%;
+    margin: 0
+}
+
+.valid-rating {
+    background: green;
+}
+
+.invalid-rating {
+    background: red
+}
+
+
+.skills-icon{
+    width: 75px;
+}
+.skills-icon-area {
+    width: 20%;
+    border: 1px solid black;
+    text-align: center;
+}
+.skill-icon-area-container {
+    background: url(/assets/abstract-background.jpg);
+    text-align: center;
+    margin: 0;
+    background-color: #4DCCE0;;
+    margin: 0;
+    padding: 2%;
+    font-size: 1.2em;
+    color:white;
+}
+
+.skills-logo-area p > a {
+    color: black;
+}
+
+.dashboard {
+    text-align: center;
+    margin: 2%;
+    font-weight: lighter;
+    font-size: 4em;
+}
+
+.name {
+    font-size: 3em;
+}
+
+.awaiting-to-rate {
+    margin-bottom: 3%;
+}
+
+.calendar-icon {
+    width: 40%;
+}
+
+.blank {
+    background: none;
+}
+
+.bike {
+    background: url(/assets/bike-background.jpg);
+}
+.search-header {
+    text-align: center;
+    margin-top: 115px
+    
+}
+
+.cities-wrapper,.skills-wrapper > h2 {
+    text-align: center;
+
+}
+.cities-wrapper,.skills-wrapper {
+    text-align: center;
+} 
+
+.input-search-page {
+    height: 35px;
+    width: 35%;
+    margin-bottom: 2%;
+    margin-top: -1%;
+}
+
+.input-search-page-button {
+    text-align: center;
+}
+
+.body-search {
+    background: url(/assets/bike-background.jpg);
+}
+
+.search-div-right  {
+    font-size: 1.4em;
+    background-color: lightsalmon;
+    opacity: 0.9;
+    color: white;
+    padding-left: 0;
+    padding-right: 0;
+}
+.skills-wrapper{
+    background-color: darkturquoise;
+    padding-top: 1px;
+}
+
+.search-div-header {
+    display: table-cell;
+    height: 338px;
+}
+
+.center-search-div {
+    padding-left: -15px;
+    background:aquamarine;
+    height: 648px;
+    opacity: 0.9;
+}
+.search-div-search {
+    height: 330px;
+    text-align: center;
+}
+
+.search-div-search  p {
+    font-size: 1.4em;
+}
+
+.right-search-area {
+    height: 648px;
+    
+    opacity: 0.8;
+}
+
+.center-search-div hr {
+    margin-top: -18px;
+    margin-bottom: 32px;
+    border: 0;
+    border-top: 1px solid #4A3D3D;
+}
+
+.search-table {
+    margin-left: -16px;
+    width: 476px;
+    font-size: 1.2em;
+    color:black;
+}
+
+.rating { 
+    background: grey;
+}
+
+.nothing-found {
+    color: red;   
+}
+
+.map-div {
+    text-align: right;
+}
+
+.safety-message {
+    color: #75E862;
+}
+
+
+.skills-logo {
+animation: loading 5s linear infinite;
+}
+@keyframes loading{
+ 100% {transform:rotate(360deg);}
+}
+.login-label {
+    width: 60%;
+}
+.login-button {
+    width: 120%;
+}
+
+.remember-checkbox{
+    width: 60%;
+    text-align: left;
+    margin-left: 0px;
+}
+.checkbox {
+    width: 20px;
+}
+
+
+

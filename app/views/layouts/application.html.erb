@@ -7,6 +7,43 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="navbar navbar-custom">
+    <div class="navbar-inner navbar-custom">
+        <ul class="nav navbar-custom navbar-ul" id="nav">
+            <li>
+              <% if user_signed_in? %>
+                <%= link_to 'Home', user_path(current_user), class: "home" %>
+              <% else %>
+                <%= link_to 'Log In', new_user_session_path, class: "log-in" %> 
+                <li><a id="how-it-works" href="#first-step">How It Works</a></li>
+              <%end %>
+            </li>
+            <% if user_signed_in? %>
+              <li><%= link_to "New Search", users_path %></li>
+              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+              <li>
+              <%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %>
+          </li>
+        <% end %>
+        <li class="logo-nav">
+          <h1 class="navbar-h1"> Altruist </h1>  
+                <img class="navbar-img" src="/assets/sharing.jpg" >
+          </li>
+        </ul>
+      </div> 
+      <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %> error-messages">
+          <a href="#" data-dismiss="alert" class="close">×</a>
+          <ul>
+            <li>
+              Attention: <%= value %>
+            </li>
+          </ul>
+       </div>
+    <% end %>
+  </div>
+
+  
 	
 
 <%= yield %>
