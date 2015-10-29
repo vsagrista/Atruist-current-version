@@ -2,16 +2,16 @@ Rails.application.routes.draw do
 devise_for :users
 
 get "/users/dashboard" => "users#dashboard"
-root :to => "users#redirect_to_dashboard"
-#root to: "users#dashboard" 
+
+authenticated :user do
+  root :to => "users#redirect_to_dashboard", as: :authenticated_root
+end
+
+root :to => "welcome#welcome"
+
 scope "/" do
   resources :users
 end
 
-# routes.rb
-
- 
-
-#root to:  "users#dashboard"
  
 end
