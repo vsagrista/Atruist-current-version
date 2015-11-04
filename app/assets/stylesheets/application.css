@@ -16,8 +16,9 @@
 
 
 
-body{
+.dashboard-body{
     background: url(/assets/city-background.jpg);
+    background-size: cover;
     }
 
 .not-signed-in {

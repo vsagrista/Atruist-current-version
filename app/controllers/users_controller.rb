@@ -6,6 +6,7 @@ include UsersHelper
 
   end
   def dashboard
+    @user = current_user
   	
   end
   
