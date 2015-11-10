@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 RSpec.describe "Users", type: :request do
   describe "GET /users" do
     it "works! (now write some real specs)" do
@@ -18,23 +19,32 @@ describe "Create place scenario" do
   end
 end
 
-describe "the signin process", :type => :feature do
-  before :each do
-    User.create(:email => 'user@example.com', :password => 'password')
+feature "Signing in" do
+  background do
+    User.create(:email => 'user@example.com', :password => 'caplin')
   end
 
-  it "signs me in" do
+  scenario "Signing in with correct credentials" do
     visit '/users/sign_in'
     within("#session") do
       fill_in 'Email', :with => 'user@example.com'
-      fill_in 'Password', :with => 'password'
-      expect(response).to have_http_status(302)
-      expect(page).to have_content 'Dashboard'
+      fill_in 'Password', :with => 'caplin'
+      click_button 'Sign in'
+    expect(page).to have_content 'Dashboard'
     end
-   # click_on "Log In"
-   
-    #expect(page).to have_content 'Dashboard'
+    
+  end
+
+  given(:other_user) { User.create(:email => 'other@example.com', :password => 'rous') }
+
+  scenario "Signing in as another user" do
+    visit '/users/sign_in'
+    within("#session") do
+      fill_in 'Email', :with => other_user.email
+      fill_in 'Password', :with => other_user.password
+    end
+    click_button 'Sign in'
+    expect(page).to have_content 'Invalid email or password'
   end
 end
 
-#requests

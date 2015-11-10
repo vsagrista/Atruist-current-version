@@ -3,11 +3,10 @@ include UsersHelper
   before_action :authenticate_user!
 
   def index
-
   end
+
   def dashboard
-    @user = current_user
-  	
+    @user = current_user	
   end
   
   def show
