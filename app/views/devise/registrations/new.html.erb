@@ -15,11 +15,52 @@
         <%= f.password_field :password_confirmation, class: "form-control" %>
       </div>
       <div class="form-group">
-        <%= f.label  "Address: (street, city and country)" %>
-        <%= f.text_field :address, class: "form-control" %>
+        <%= f.label  "Address: (street, city and country)" %> 
+        <img src="/assets/info-4.png" id="security-signup-icon"> 
+        <p class="security-signup-p">For security reasons, you only enter your street name city and country. If you want to help/be helped by another altruist you can send your number privately</p>
+        <%= f.text_field :address, class: "form-control", id: "address" %>
       </div>
-      <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary" %>
+      <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary", id: "sign-up-btn" %>
     <% end %>
   </div>
 </div>
 <%= render "devise/shared/links" %>
+<script>
+
+// Finds out in google maps api whether the address entered is valid
+var map;
+
+$(document).on("click", "#sign-up-btn", function(){
+  initMap();
+});
+
+function initMap() {
+   var geocoder = new google.maps.Geocoder();
+  document.getElementById('sign-up-btn').addEventListener('click',  function() {
+    geocodeAddress(geocoder, map);
+    
+  });
+}
+
+function geocodeAddress(geocoder, resultsMap) {
+  var address = document.getElementById('address').value;
+  geocoder.geocode({'address': address}, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      if (address.split(",").length == 3){
+        return true;
+      }
+      else{
+        alert("Wrong format, remember: street, city, country!"); 
+      }
+      
+    } else {
+      alert('No address found!');
+      return false;
+      }
+  });
+}
+
+</script> 
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB13TXpc5FZdPqhOX75ny_wVMxSI2H5C9M&callback=initMap">
+</script>

@@ -114,6 +114,11 @@
     text-align: center;
 }
 
+.security-signup-p{
+    display: none;
+    color: red;
+}
+
 .carousel-h1 {
     margin-top: -5px;
     margin-bottom: 5px;

@@ -15,3 +15,11 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+
+$(document).on('mouseenter', '#security-signup-icon', function () {
+	$('.security-signup-p').fadeToggle();
+});
+$(document).on('mouseleave', '#security-signup-icon', function () {
+	$('.security-signup-p').fadeToggle('slow');
+});
