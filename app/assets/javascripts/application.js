@@ -23,3 +23,5 @@ $(document).on('mouseenter', '#security-signup-icon', function () {
 $(document).on('mouseleave', '#security-signup-icon', function () {
 	$('.security-signup-p').fadeToggle('slow');
 });
+
+

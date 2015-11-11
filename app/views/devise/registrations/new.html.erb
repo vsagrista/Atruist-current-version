@@ -1,26 +1,27 @@
 <%= bootstrap_devise_error_messages! %>
 <div class="panel panel-default">
   <div class="panel-body">
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form" }) do |f| %>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form" }, id: "sign-up-form") do |f| %>
       <div class="form-group">
         <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        <%= f.email_field :email, autofocus: true, class: "form-control email" %>
       </div>
       <div class="form-group">
         <%= f.label :password %><br />
-        <%= f.password_field :password, class: "form-control" %>
+        <%= f.password_field :password, class: "form-control password1" %>
       </div>
       <div class="form-group">
         <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: "form-control" %>
+        <%= f.password_field :password_confirmation, class: "form-control password2" %>
       </div>
       <div class="form-group">
         <%= f.label  "Address: (street, city and country)" %> 
         <img src="/assets/info-4.png" id="security-signup-icon"> 
+        <img src="/assets/thumb.png" id="security-signup-thumb"> 
         <p class="security-signup-p">For security reasons, you only enter your street name city and country. If you want to help/be helped by another altruist you can send your number privately</p>
         <%= f.text_field :address, class: "form-control", id: "address" %>
       </div>
-      <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary", id: "sign-up-btn" %>
+      <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary", id: "sign-up-btn"%>
     <% end %>
   </div>
 </div>
@@ -29,33 +30,33 @@
 
 // Finds out in google maps api whether the address entered is valid
 var map;
-
-$(document).on("click", "#sign-up-btn", function(){
-  initMap();
+var address
+$("#address").on("input",  function(event){
+  address = document.getElementById('address').value;
+  if (address.split(",").length == 3 
+    && $('.password1').val().length > 0
+    && $('.password2').val().length > 0
+    && $('.email').val().length > 0
+  )
+  {
+    initMap();
+  }  
 });
 
 function initMap() {
    var geocoder = new google.maps.Geocoder();
-  document.getElementById('sign-up-btn').addEventListener('click',  function() {
-    geocodeAddress(geocoder, map);
-    
-  });
+    geocodeAddress(geocoder, map);  
 }
 
 function geocodeAddress(geocoder, resultsMap) {
   var address = document.getElementById('address').value;
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
-      if (address.split(",").length == 3){
-        return true;
-      }
-      else{
-        alert("Wrong format, remember: street, city, country!"); 
-      }
-      
+        $('#security-signup-thumb').fadeToggle('slow');
+        document.getElementById('sign-up-btn').disabled = false;
+
     } else {
-      alert('No address found!');
-      return false;
+      document.getElementById('sign-up-btn').disabled = true;
       }
   });
 }

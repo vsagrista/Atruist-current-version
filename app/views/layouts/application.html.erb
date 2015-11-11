@@ -12,7 +12,7 @@
         <ul class="nav navbar-custom navbar-ul" id="nav">
             <li>
               <% if user_signed_in? %>
-                <%= link_to 'Home', user_path(current_user), class: "home" %>
+                <%= link_to 'Home', users_dashboard_path, class: "home" %>
               <% else %>
                 <%= link_to 'Log In', new_user_session_path, class: "log-in" %> 
                 <li><a id="how-it-works" href="#first-step">How It Works</a></li>

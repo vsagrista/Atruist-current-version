@@ -113,6 +113,9 @@
 .sign-up-submitt-button{
     text-align: center;
 }
+#security-signup-thumb {
+    display: none;
+}
 
 .security-signup-p{
     display: none;
