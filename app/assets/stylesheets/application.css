@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require fullcalendar
  *= require_tree .
  *= require_self
  */
@@ -48,11 +49,15 @@ hr {
 }
 
 .calendar{
-    height: 200px;
+    /*height: 200px;*/
     background: #3CA18D;
     width: 100%;
     opacity: 0.9;
 
+}
+.fc-view-container {
+    background: #3CA18D;
+    opacity: 0.9;
 }
 .dashboard-notifications-box > h2, .dashboard-notifications-label {
     font-weight: lighter;

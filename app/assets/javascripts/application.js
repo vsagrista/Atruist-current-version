@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require moment
+//= require fullcalendar
 //= require_tree .
 
 $(document).ready(function(){
@@ -48,4 +50,9 @@ $(document).on('mouseenter', '.skills-icon', function () {
  //        borderWidth: 4
  //    }, 1000);
 })
+
+$(document).ready(function() {
+   $(".calendar").fullCalendar(
+  );
+});
    
