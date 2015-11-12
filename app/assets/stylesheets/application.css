@@ -15,14 +15,52 @@
  */
 
 
-
+/*
 .dashboard-body{
-    background: url(/assets/city-background.jpg);
-    background-size: cover;
-    }
+    background: url(/assets/teamwork.jpg);
+/*    background-size: cover;
+*/ 
 
+.devise-ul {
+    list-style-type: none;
+}
+
+.dashboard-wrapper{
+    background: url(/assets/teamwork.jpg);
+    height: 800px;
+}
 .not-signed-in {
     background: none;
+}
+
+.dashboard-notifiactions-container > h1{
+    text-align: center;
+    font-weight: lighter;
+    font-size: 2em;
+}
+hr {
+    border-top: 1px solid #583E3E;
+}
+
+.dashboard-notifications-box {
+    text-align: center;
+    /*background: #3EA38F;*/
+    background: #428BCA;
+    /*height: 200px;
+*/
+}
+.dashboard-notifications-box > h1 {
+    background: #428BCA;
+    font-weight: lighter;
+    margin-bottom: 0;
+
+}
+.dashboard-notifications-box > p {
+  /*  visibility: hidden;*/
+    background: white;
+    font-weight: lighter;
+    margin: 0;
+    border-bottom: 1px solid black;
 }
 
 
@@ -323,7 +361,7 @@
 
 
 .skills-icon{
-    width: 75px;
+    width: 100px;
 }
 .skills-icon-area {
     width: 20%;
@@ -331,18 +369,30 @@
     text-align: center;
 }
 .skill-icon-area-container {
-    background: url(/assets/abstract-background.jpg);
+    height: 80%;
+    background: url(/assets/teamwork.jpg);
     text-align: center;
     margin: 0;
-    background-color: #4DCCE0;;
+    background: rgba(14, 140, 116, 0.8);
     margin: 0;
     padding: 2%;
     font-size: 1.2em;
     color:white;
 }
+/*@media (max-width: 600px) {
+  .skill-icon-area-container {
+    height: 300px;
+}*/
 
 .skills-logo-area p > a {
     color: black;
+    font-size: 1.5em;
+}
+.skills-logo-area  > h2 {
+    margin-top: 1%;
+}
+.skills-logo-area  > img {
+    margin-top: -1%;
 }
 
 .dashboard {

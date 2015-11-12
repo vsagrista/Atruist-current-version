@@ -3,6 +3,10 @@
   <div class="panel-body">
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form" }, id: "sign-up-form") do |f| %>
       <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true, class: "form-control user-name" %>
+      </div>
+      <div class="form-group">
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, class: "form-control email" %>
       </div>
@@ -34,21 +38,25 @@ var address
 $("#address").on("input",  function(event){
   address = document.getElementById('address').value;
   if (address.split(",").length == 3 
+    && $('.user-name').val().length > 0
     && $('.password1').val().length > 0
     && $('.password2').val().length > 0
     && $('.email').val().length > 0
   )
   {
+
     initMap();
   }  
 });
 
 function initMap() {
+    console.log("helloe");
    var geocoder = new google.maps.Geocoder();
     geocodeAddress(geocoder, map);  
 }
 
 function geocodeAddress(geocoder, resultsMap) {
+  document.getElementById('sign-up-btn').disabled = true;
   var address = document.getElementById('address').value;
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
