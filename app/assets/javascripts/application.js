@@ -24,18 +24,28 @@ $(document).ready(function(){
 
 $(document).on('mouseenter', '#security-signup-icon', function () {
 	$('.security-signup-p').fadeToggle();
+	$('.security-address-p').fadeToggle();
 });
 
 $(document).on('mouseleave', '#security-signup-icon', function () {
 	$('.security-signup-p').fadeToggle('slow');
 });
 
-$(document).ready(function () {
-	$(".dashboard-notifications-box > p").hide();
-});
+// $(document).ready(function () {
+// 	$(".dashboard-notifications-box > p").hide();
+// });
 
 $(document).on('click', '.dashboard-notifications-header', function () {
-	$(this).siblings().toggle("slow");
+	$(this).siblings().toggle('slow');
 });
 
-
+$(document).on('mouseenter', '.skills-icon', function () {
+	//  $(".skills-icon").effect("highlight", {color:"#669966"}, 3000 );
+	// //$(".skills-icon").toggle( "highlight" );
+	// // $('.skills-icon').effect('highlight', {}, 3000)
+	$(this).siblings().effect('shake',{times:2})
+	// .css({border: '0 solid green'}).animate({
+ //        borderWidth: 4
+ //    }, 1000);
+})
+   

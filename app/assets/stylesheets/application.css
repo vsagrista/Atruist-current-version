@@ -27,7 +27,7 @@
 
 .dashboard-wrapper{
     background: url(/assets/teamwork.jpg);
-    height: 800px;
+    height: 600px;
 }
 .not-signed-in {
     background: none;
@@ -44,19 +44,29 @@ hr {
 
 .dashboard-notifications-box {
     text-align: center;
-    /*background: #3EA38F;*/
-    background: #428BCA;
-    /*height: 200px;
-*/
+    background: rgba(14, 140, 116, 0.8);
 }
-.dashboard-notifications-box > h1 {
-    background: #428BCA;
-    font-weight: lighter;
-    margin-bottom: 0;
+
+.calendar{
+    height: 200px;
+    background: #3CA18D;
+    width: 100%;
+    opacity: 0.9;
 
 }
+.dashboard-notifications-box > h2, .dashboard-notifications-label {
+    font-weight: lighter;
+    margin: 0;
+    color: white;
+}
+.dashboard-notifications-label {
+    text-align: center;
+    background: rgba(14, 140, 116, 0.8);
+    border-bottom: 1px solid black;
+}
+
 .dashboard-notifications-box > p {
-  /*  visibility: hidden;*/
+    display: none;
     background: white;
     font-weight: lighter;
     margin: 0;
@@ -155,9 +165,12 @@ hr {
     display: none;
 }
 
-.security-signup-p{
+.security-signup-p, .security-address-p {
     display: none;
     color: red;
+}
+.security-address-p {
+    text-align: center;
 }
 
 .carousel-h1 {
@@ -362,7 +375,9 @@ hr {
 
 .skills-icon{
     width: 100px;
+    border-radius: 50%;
 }
+
 .skills-icon-area {
     width: 20%;
     border: 1px solid black;

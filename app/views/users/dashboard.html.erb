@@ -16,82 +16,66 @@
 
 <div class="wrapper dashboard-wrapper">
 <div class="container dashboard-notifiactions-container">
-    <h1>Dashboard</h1>
+    <h1>Dashboard 
+        <% unless @user.address.empty? %>
+        <img src="/assets/info-4.png" id="security-signup-icon">
+        <% end %>
+        <img src="/assets/thumb.png" id="security-signup-thumb"> 
+     </h1>
+     <% unless @user.address.empty? %>
+         <p class="security-address-p">
+             You need to add your address to start searching for other altruists! Click here:
+             <a href="">Add Address</a>
+         </p>
+     <% end %>
+
+       
     <hr>
     <div class="row">
         <div class="col-md-8">
-           <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="dashboard-notifications-label">RECEIVED</h1>
                     <div class="dashboard-notifications-box">
-                        <h1 class="dashboard-notifications-header">Hola</h1>
+                        <h2 class="dashboard-notifications-header">Hola</h2>
+                        <p id="dashboard-notifications-ul">hola</p>
+                    </div> 
+                    <div class="dashboard-notifications-box">
+                        <h2 class="dashboard-notifications-header">Hola</h2>
                         <p id="dashboard-notifications-ul">hola</p>
                     </div>      
                 </div>
                 <div class="col-md-6">
+                    <h1 class="dashboard-notifications-label">SENT</h1>
                     <div class="dashboard-notifications-box">
-                        <h1 class="dashboard-notifications-header">Hola</h1>
+                        <h2 class="dashboard-notifications-header">Hola</h2>
                         <p id="dashboard-notifications-ul">hola</p>
-                        <p id="dashboard-notifications-ul">adios</p>
-                    </div>      
-                </div>
-
-                <div class="col-md-6">
+                        <p id="dashboard-notifications-ul">hola</p>
+                        <p id="dashboard-notifications-ul">hola</p>
+                    </div>  
                     <div class="dashboard-notifications-box">
-                        <h1 class="dashboard-notifications-header">Hola</h1>
+                        <h2 class="dashboard-notifications-header">Hola</h2>
                         <p id="dashboard-notifications-ul">hola</p>
-                    </div>      
+                    </div>     
                 </div>
-                <div class="col-md-6">
-                    <div class="dashboard-notifications-box">
-                        <h1 class="dashboard-notifications-header">Hola</h1>
-                        <p id="dashboard-notifications-ul">hola</p>
-                        <p id="dashboard-notifications-ul">adios</p>
-                    </div>      
-                </div>
+            </div>
         </div>
         <div class="col-md-4">
-            <div class="dashboard-notifications-box" style="height: 300px">
-                        <h1 class="dashboard-notifications-header">Hola</h1>
+            <h1 class="dashboard-notifications-label">Calendar</h1>
+            <div class="dashboard-notifications-box">
+                        
+                        <div class="calendar"></div>
              </div> 
         </div>
-
-       <!--       
-                <div class="col-md-4">
-                         
-                </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="dashboard-notifications-box">
-                <h1 class="dashboard-notifications-header">Hola</h1>
-                <p id="dashboard-notifications-ul">hola</p>
-            </div>      
-        </div>
-        <div class="col-md-4">
-            <div class="dashboard-notifications-box">
-                <h1 class="dashboard-notifications-header">Hola</h1>
-                <p id="dashboard-notifications-ul">hola</p>
-                <p id="dashboard-notifications-ul">adios</p>
-            </div>      
-        </div>
-        <div class="col-md-4">   
-        </div> -->
     </div>
     
 </div>
-<p>Paste the rest here!</p>
+<!-- <p>Paste the rest here!</p>
     <p><%= link_to "Sign Out", destroy_user_session_path, method: 'DELETE' %></p>
     <p><%= link_to "My stats", user_path(current_user) %></p>
-
+ -->
 </div>
-
-
-
-
-
-
-
-
-
-
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
 </body>
