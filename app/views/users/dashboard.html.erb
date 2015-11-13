@@ -61,21 +61,18 @@
             </div>
         </div>
         <div class="col-md-4">
-            <h1 class="dashboard-notifications-label">Calendar</h1>
-            <div class="dashboard-notifications-box">
-                        
-                        <div class="calendar">
-                        
-                        </div>
+            <h1 class="dashboard-notifications-label">Users</h1>
+            <div class="dashboard-notifications-box">   
+                <div class="calendar">
+                    <div id="chart-1"></div>
+                        <%= pie_chart User.group(:name).count, class:"chart" %>
+                    </div>
+                </div>
              </div> 
         </div>
     </div>
     
 </div>
-<!-- <p>Paste the rest here!</p>
-    <p><%= link_to "Sign Out", destroy_user_session_path, method: 'DELETE' %></p>
-    <p><%= link_to "My stats", user_path(current_user) %></p>
- -->
 </div>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>

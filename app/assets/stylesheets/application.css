@@ -49,12 +49,11 @@ hr {
 }
 
 .calendar{
-    /*height: 200px;*/
     background: #3CA18D;
     width: 100%;
     opacity: 0.9;
-
 }
+
 .fc-view-container {
     background: #3CA18D;
     opacity: 0.9;

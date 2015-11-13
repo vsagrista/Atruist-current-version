@@ -51,8 +51,8 @@ $(document).on('mouseenter', '.skills-icon', function () {
  //    }, 1000);
 })
 
-$(document).ready(function() {
-   $(".calendar").fullCalendar(
-  );
-});
-   
+// $(document).ready(function() {
+//    $(".calendar").fullCalendar(
+//   );
+// });
+//    
