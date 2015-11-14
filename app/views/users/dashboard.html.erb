@@ -25,7 +25,7 @@
      <% unless @user.address.empty? %>
          <p class="security-address-p">
              You need to add your address to start searching for other altruists! Click here:
-             <a href="">Add Address</a>
+             <%= link_to "Add Address", users_address_path %>
          </p>
      <% end %>
 
@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <h1 class="dashboard-notifications-label">Users</h1>
+            <h1 class="dashboard-notifications-label">To Rat Users Near You / most active</h1>
             <div class="dashboard-notifications-box">   
                 <div class="calendar">
                     <div id="chart-1"></div>

@@ -18,4 +18,11 @@ include UsersHelper
 
   def welcome_page
   end
+
+  def address
+    @user = current_user  
+  end
+
+  def update
+  end
 end

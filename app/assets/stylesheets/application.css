@@ -16,11 +16,7 @@
  */
 
 
-/*
-.dashboard-body{
-    background: url(/assets/teamwork.jpg);
-/*    background-size: cover;
-*/ 
+/********************** Dashboard *********************/
 
 .devise-ul {
     list-style-type: none;
@@ -77,6 +73,7 @@ hr {
     border-bottom: 1px solid black;
 }
 
+/******************* Home page - not signed in ***************/
 
 .navbar-custom > li{
     line-height: 45px;
@@ -260,6 +257,14 @@ hr {
     width: 150px;
     font-size: 1.2em
 }
+
+/************ ADDRESS PAGE **********/
+
+.address {
+    background: white;
+}
+
+
 
 .user-pic {
     margin-top: 10px;
