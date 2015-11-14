@@ -17,9 +17,92 @@
     </div>
 </div>
 <div class="wrapper dashboard-wrapper address">
-	<div class="container dashboard-notifiactions-container">
-	    <h1>Address Search
+	<div class="container dashboard-notifiactions-container address-container">
+	    <h1>Address Search 
+	    <img  src="/assets/lens.png">
 	    </h1>
 	    <hr>
+   		<div class="text-center">
+            <input id="address" class="search-query" placeholder="Search" type="textbox">
+            <button type="submit" id="submit" type="button" class="btn btn-primary search-address"><img  src="/assets/lens.png"></button>
+            <button type="sumbit" id="save-address" class="btn btn-primary save-address">Save</button> 
+        </div>
+    </div>	
+	    	<div id="map" style="width:47%; border-radius: 2%"></div>
 	</div>
-</div>
+<script>
+
+var markers = []
+var myLatLng = {lat: 41.391552999999995, lng: 2.1769064}
+var map
+
+function initMap() {
+  if (navigator.geolocation) {
+     navigator.geolocation.getCurrentPosition(function (position) {
+         initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+         console.log(position.coords.latitude, position.coords.longitude)
+         map.setCenter(initialLocation);
+     });
+ }
+    map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 8,
+    center: myLatLng
+  });
+   var geocoder = new google.maps.Geocoder();
+  document.getElementById('submit').addEventListener('click', function() {
+    geocodeAddress(geocoder, map);
+    
+  });
+}
+
+function geocodeAddress(geocoder, resultsMap) {
+  var address = document.getElementById('address').value;
+  geocoder.geocode({'address': address}, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      resultsMap.setCenter(results[0].geometry.location);
+      clearMarkers();
+      addMarker(results[0].geometry.location)
+      
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+      }
+  });
+}
+
+function addMarker(location) {
+  var marker = new google.maps.Marker({
+    position: location,
+    map: map
+  });
+  markers.push(marker);
+  console.log(marker.position.lat(), marker.position.lng())
+  //console.log(markers[0].position.lat(),markers[0].position.lng());
+}
+
+// Sets the map on all markers in the array.
+function setMapOnAll(map) {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+  }
+}
+
+// Removes the markers from the map, but keeps them in the array.
+function clearMarkers() {
+  setMapOnAll(null);
+}
+
+// Shows any markers currently in the array.
+function showMarkers() {
+  setMapOnAll(map);
+}
+
+// Deletes all markers in the array by removing references to them.
+function deleteMarkers() {
+  clearMarkers();
+  markers = [];
+}
+
+</script>
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB13TXpc5FZdPqhOX75ny_wVMxSI2H5C9M&callback=initMap">
+</script>

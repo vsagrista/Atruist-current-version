@@ -258,13 +258,35 @@ hr {
     font-size: 1.2em
 }
 
-/************ ADDRESS PAGE **********/
+/********************** ADDRESS PAGE *********************/
 
 .address {
     background: white;
 }
+.address-container > hr {
+    width: 50%;
+}
+
+.user-address {
+    width: 50%;
+    border: 1px solid black;
+    text-align: center;
+
+}
+.search-address{
+    padding: 3px;
+}
+
+.save-address{
+    padding: 5px;
+}
+ 
 
 
+
+
+
+/************************ REST ******************************/
 
 .user-pic {
     margin-top: 10px;
