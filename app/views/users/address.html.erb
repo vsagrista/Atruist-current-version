@@ -51,38 +51,28 @@
 
 var markers = []
 var myLatLng = {lat: 41.391552999999995, lng: 2.1769064}
-var map
-
-// $(document).ready(function(){
-// 	document.getElementById('address').val()
-
-//  geocodeAddress(geocoder, map);
-		
-
-	
-		
-
-// })
+var map 
 
 function initMap() {
-  if (navigator.geolocation) {
-     navigator.geolocation.getCurrentPosition(function (position) {
-         initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-         console.log(position.coords.latitude, position.coords.longitude)
-         map.setCenter(initialLocation);
-     });
- }
-    map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 8,
-    center: myLatLng
-  });
+	  if (navigator.geolocation) {
+	     navigator.geolocation.getCurrentPosition(function (position) {
+	         initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	         console.log(position.coords.latitude, position.coords.longitude)
+	         map.setCenter(initialLocation);
+	     });
+	 }
 
-   var geocoder = new google.maps.Geocoder();
-  document.getElementById('submit').addEventListener('click', function() {
-    geocodeAddress(geocoder, map);
-    
-  });
+map = new google.maps.Map(document.getElementById('map'), {
+zoom: 8,
+center: myLatLng
+});
+	var geocoder = new google.maps.Geocoder();
+   	geocodeAddress(geocoder, map);
+	document.getElementById('submit').addEventListener('click', function() {
+		geocodeAddress(geocoder, map);
+	});
 }
+
 
 function geocodeAddress(geocoder, resultsMap) {
   var address = document.getElementById('address').value;
