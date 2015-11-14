@@ -24,7 +24,7 @@
 
 .dashboard-wrapper{
     background: url(/assets/teamwork.jpg);
-    height: 600px;
+    height: 700px;
 }
 .not-signed-in {
     background: none;
@@ -279,6 +279,7 @@ hr {
 
 .save-address{
     padding: 5px;
+    width: 5%;
 }
  
 

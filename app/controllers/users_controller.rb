@@ -24,5 +24,6 @@ include UsersHelper
   end
 
   def update
+    #binding.pry
   end
 end

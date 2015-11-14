@@ -2,7 +2,11 @@
     <div class="row">
         <div class="col-md-6">
             <h2 class="name">Welcome, <%= @user.name.capitalize %></h2>
-             <p>Confirm your address and accept</p>
+            <% if @user.address.nil? %>
+            	<p>Upss, you haven't entered an address</p>
+            <% else %>
+            	<p>Your Address: <i><%= @user.address %></i></p>
+           	<% end %>   
         </div>
         <div class="col-md-6">
             <div class="skills-logo-area">
@@ -20,12 +24,25 @@
 	<div class="container dashboard-notifiactions-container address-container">
 	    <h1>Address Search 
 	    <img  src="/assets/lens.png">
+	    <img src="/assets/info-4.png" id="security-signup-icon">  
 	    </h1>
+	    <p class="security-signup-p text-center">For security reasons, the format should be Street, City, Country (NO NUMBER).<br> If you want to help/be helped by another altruist you can send your number privately</p>
 	    <hr>
    		<div class="text-center">
-            <input id="address" class="search-query" placeholder="Search" type="textbox">
-            <button type="submit" id="submit" type="button" class="btn btn-primary search-address"><img  src="/assets/lens.png"></button>
-            <button type="sumbit" id="save-address" class="btn btn-primary save-address">Save</button> 
+        <%= form_for @user do |f| %>
+           <!--  <input id="address" class="search-query" placeholder="Search" type="textbox"> -->
+           <!-- <button type="sumbit" id="save-address" class="btn btn-primary save-address">Save</button> ORIGINAL BUTTON --> 
+          
+		     <%= f.text_field :address, id:"address", placeholder: "Search" %>
+		     <button id="submit" type="button" class="btn btn-primary search-address">
+		     	<img  src="/assets/lens.png">
+		     </button>
+
+		     	<%= f.submit "Save", id: "save-address", 
+		     	class: "btn btn-primary save-address" %>
+		    
+    	
+	     <% end %>
         </div>
     </div>	
 	    	<div id="map" style="width:47%; border-radius: 2%"></div>
@@ -35,6 +52,17 @@
 var markers = []
 var myLatLng = {lat: 41.391552999999995, lng: 2.1769064}
 var map
+
+// $(document).ready(function(){
+// 	document.getElementById('address').val()
+
+//  geocodeAddress(geocoder, map);
+		
+
+	
+		
+
+// })
 
 function initMap() {
   if (navigator.geolocation) {
@@ -48,6 +76,7 @@ function initMap() {
     zoom: 8,
     center: myLatLng
   });
+
    var geocoder = new google.maps.Geocoder();
   document.getElementById('submit').addEventListener('click', function() {
     geocodeAddress(geocoder, map);
@@ -75,8 +104,6 @@ function addMarker(location) {
     map: map
   });
   markers.push(marker);
-  console.log(marker.position.lat(), marker.position.lng())
-  //console.log(markers[0].position.lat(),markers[0].position.lng());
 }
 
 // Sets the map on all markers in the array.

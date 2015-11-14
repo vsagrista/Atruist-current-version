@@ -17,7 +17,7 @@
 <div class="wrapper dashboard-wrapper">
 <div class="container dashboard-notifiactions-container">
     <h1>Dashboard 
-        <% unless @user.address.empty? %>
+        <% if @user.address.nil? %>
         <img src="/assets/info-4.png" id="security-signup-icon">
         <% end %>
         <img src="/assets/thumb.png" id="security-signup-thumb"> 
