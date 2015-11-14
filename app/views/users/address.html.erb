@@ -30,18 +30,12 @@
 	    <hr>
    		<div class="text-center">
         <%= form_for @user do |f| %>
-           <!--  <input id="address" class="search-query" placeholder="Search" type="textbox"> -->
-           <!-- <button type="sumbit" id="save-address" class="btn btn-primary save-address">Save</button> ORIGINAL BUTTON --> 
-          
 		     <%= f.text_field :address, id:"address", placeholder: "Search" %>
 		     <button id="submit" type="button" class="btn btn-primary search-address">
 		     	<img  src="/assets/lens.png">
 		     </button>
-
-		     	<%= f.submit "Save", id: "save-address", 
-		     	class: "btn btn-primary save-address" %>
-		    
-    	
+		     <%= f.submit "Save", id: "save-address", 
+		     class: "btn btn-primary save-address" %>
 	     <% end %>
         </div>
     </div>	
@@ -118,6 +112,16 @@ function deleteMarkers() {
   clearMarkers();
   markers = [];
 }
+
+$('#address').keypress(function() {
+    var address = this.value;
+    $(".dDimension:contains('" + address + "')").css("display","block");
+    if (address.split(",").length == 3){
+    	$('#save-address').prop('disabled', false);
+    } else {
+      $('#save-address').prop('disabled', true);
+    }
+});
 
 </script>
 <script async defer
