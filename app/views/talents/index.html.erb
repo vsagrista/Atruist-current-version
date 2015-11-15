@@ -16,7 +16,9 @@
         <div class="container">
         <% if @talents.empty? %>
             <div class="empty">
-                <h2>Still empty...<a href="#">Add a talent</a></h2>
+                <h2>Still empty...
+                <%= link_to "Add a talent",    new_user_talent_path %>
+                </h2>
                 <img src="/assets/empty.jpg">
                 <br>
                 
@@ -25,6 +27,9 @@
             <% @talents.each_with_index do |talent,index| %>
                 <div class="list-group">
                     <div class="list-group-item">
+                    <h2 class="text-center">
+                        <%= link_to "Add a talent", new_user_talent_path %>
+                    </h2>
                         <a aria-controls="collapse-description" aria-expanded="false"
                         class="list-group-item" data-toggle="collapse" href=
                         "#collapse-description<%= index %>" role="button"><i class=
