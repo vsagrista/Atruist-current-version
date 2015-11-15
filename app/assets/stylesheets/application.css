@@ -44,6 +44,14 @@ hr {
     background: rgba(14, 140, 116, 0.8);
 }
 
+.dashboard-my-talents-link{
+    
+    color: white;
+}
+.dashboard-my-talents-link:hover{
+    text-decoration: none;
+}
+
 .calendar{
     background: #3CA18D;
     width: 100%;
@@ -248,8 +256,7 @@ hr {
 .join-jumbotron {
     background: url("/assets/background.jpg");
     color: #FFF;
-    padding: 10px;
-    
+    padding: 10px; 
     text-align: center;
 }
 
@@ -290,6 +297,26 @@ hr {
 .change{
     border-radius: 0 !important;
 }
+
+/*********************** INDEX PAGES ************************/
+
+/**** Index - Talents ****/
+
+.index-talents-wrapper {
+    background: url(/assets/skills-icon2.jpg);
+    height: 700px;
+}
+.empty {
+   text-align: center;
+}
+
+.empty a {
+    text-decoration: none;
+}
+
+
+
+
 
 
 /************************ REST ******************************/
