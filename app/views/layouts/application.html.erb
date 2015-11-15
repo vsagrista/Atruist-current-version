@@ -19,7 +19,7 @@
                 <li><a id="how-it-works" href="#first-step">How It Works</a></li>
               <%end %>
             </li>
-            <% if user_signed_in? %>
+           <% if user_signed_in? %>
               <li><%= link_to "New Search", users_path %></li>
               <li><%= link_to "Settings", edit_user_path(current_user) %></li>
               <li>
