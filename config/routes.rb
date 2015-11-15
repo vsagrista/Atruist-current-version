@@ -13,6 +13,9 @@ root :to => "welcome#welcome"
 
 scope "/" do
   resources :users
+  resources :users do
+  	resources :talents
+  end
 end
 
 
