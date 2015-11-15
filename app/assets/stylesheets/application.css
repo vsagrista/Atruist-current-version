@@ -287,6 +287,9 @@ hr {
 .important-change > a{
     color: red;
 }
+.change{
+    border-radius: 0 !important;
+}
 
 
 /************************ REST ******************************/
