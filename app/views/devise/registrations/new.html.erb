@@ -18,58 +18,8 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, class: "form-control password2" %>
       </div>
-      <div class="form-group">
-        <%= f.label  "Address: (street, city and country)" %> 
-        <img src="/assets/info-4.png" id="security-signup-icon"> 
-        <img src="/assets/thumb.png" id="security-signup-thumb"> 
-        <p class="security-signup-p">For security reasons, you only enter your street name city and country. If you want to help/be helped by another altruist you can send your number privately</p>
-        <%= f.text_field :address, class: "form-control", id: "address" %>
-      </div>
       <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary", id: "sign-up-btn"%>
     <% end %>
   </div>
 </div>
 <%= render "devise/shared/links" %>
-<script>
-
-// Finds out in google maps api whether the address entered is valid
-var map;
-var address
-$("#address").on("input",  function(event){
-  address = document.getElementById('address').value;
-  if (address.split(",").length == 3 
-    && $('.user-name').val().length > 0
-    && $('.password1').val().length > 0
-    && $('.password2').val().length > 0
-    && $('.email').val().length > 0
-  )
-  {
-
-    initMap();
-  }  
-});
-
-function initMap() {
-    console.log("helloe");
-   var geocoder = new google.maps.Geocoder();
-    geocodeAddress(geocoder, map);  
-}
-
-function geocodeAddress(geocoder, resultsMap) {
-  document.getElementById('sign-up-btn').disabled = true;
-  var address = document.getElementById('address').value;
-  geocoder.geocode({'address': address}, function(results, status) {
-    if (status === google.maps.GeocoderStatus.OK) {
-        $('#security-signup-thumb').fadeToggle('slow');
-        document.getElementById('sign-up-btn').disabled = false;
-
-    } else {
-      document.getElementById('sign-up-btn').disabled = true;
-      }
-  });
-}
-
-</script> 
-<script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB13TXpc5FZdPqhOX75ny_wVMxSI2H5C9M&callback=initMap">
-</script>

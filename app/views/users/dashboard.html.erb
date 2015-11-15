@@ -22,7 +22,7 @@
         <% end %>
         <img src="/assets/thumb.png" id="security-signup-thumb"> 
      </h1>
-     <% unless @user.address.empty? %>
+     <% if @user.address.nil? %>
          <p class="security-address-p">
              You need to add your address to start searching for other altruists! Click here:
              <%= link_to "Add Address", users_address_path %>

@@ -3,7 +3,7 @@
         <div class="col-md-6">
             <h2 class="name">Welcome, <%= @user.name.capitalize %></h2>
             <% if @user.address.nil? %>
-            	<p>Upss, you haven't entered an address</p>
+            	<p>Add your address on this page</p>
             <% else %>
             	<p>Your Address: <i><%= @user.address %></i></p>
            	<% end %>   
@@ -26,7 +26,9 @@
 	    <img  src="/assets/lens.png">
 	    <img src="/assets/info-4.png" id="security-signup-icon">  
 	    </h1>
-	    <p class="security-signup-p text-center">For security reasons, the format should be Street, City, Country (NO NUMBER).<br> If you want to help/be helped by another altruist you can send your number privately</p>
+	    <p class="security-signup-p text-center">Street, City, Country (NO NUMBER).<br>
+      * Home number and/or phone number can be sent privately
+      </p>
 	    <hr>
    		<div class="text-center">
         <%= form_for @user do |f| %>
@@ -75,10 +77,10 @@ function geocodeAddress(geocoder, resultsMap) {
       resultsMap.setCenter(results[0].geometry.location);
       clearMarkers();
       addMarker(results[0].geometry.location)
-      
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
       }
+     // else {
+     //   alert('Geocode was not successful for the following reason: ' + status);
+     //   }
   });
 }
 
