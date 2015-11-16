@@ -2,12 +2,29 @@
         <div class="panel-body">
             <%= form_for [@user,@talent] do |f| %>
             <div class="form-group">
-                <%= f.label "Talent Name" %><%= f.text_field :name, autofocus: true, class: "form-control user-name" %>
+                <%= f.label "Choose a Talent " %>
+                <%= select @talent, :name, Talent_choices['profession'], class: "choice" %>
+                <%= f.text_field :name, autofocus: true, class: "form-control user-name", :readonly => true, value: "", id: "name" %>
             </div>
             <div class="form-group">
-                <%= f.label "Talent Description" %><%= f.text_field :description, autofocus: true, class: "form-control user-name" %>
+                <%= f.label "Add a Description :" %><%= f.text_field :description, autofocus: true, class: "form-control user-name" %>
             </div>
             <%= f.submit t('.sign_up', :default => "Save"), class: "btn btn-primary", id: "sign-up-btn"%><%end %>
             <br>    
     </div>
 </div>
+
+<script type="text/javascript">
+    $("select").change(function () {
+  // $('select').on('change', function() {
+   var value = this.value 
+   $("#name").val(value);
+    // or $(this).val()
+});
+    // console.log( $(".choice").val()     )
+    // }
+        
+        //$("#name").val()
+        //)
+</script>
+

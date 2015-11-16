@@ -1,0 +1,1 @@
+Talent_choices = YAML.load_file("#{Rails.root}/config/talent_choices.yml")
