@@ -1,4 +1,5 @@
 class TalentsController < ApplicationController
+	require 'yaml'
 	def index
 		@user = current_user
 		@talents = @user.talents
@@ -17,8 +18,15 @@ class TalentsController < ApplicationController
 	end
 
 	def create
+		talent_choices = YAML::load_file("#{Rails.root}/config/talent_choices.yml") #Load
+		talent_choices["profession"] << "casa"
+ 		# d["profession"].include? "casa" Method to add to yaml
+
+
+
+
 		talent = Talent.new(talent_params)
-		talent.update(user_id: current_user.id)
+		talent.user_id = current_user.id
 		if talent.save
       flash[:notice] = "Talent saved!"
     else 
