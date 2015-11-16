@@ -1,7 +1,7 @@
 class Talent < ActiveRecord::Base
 	belongs_to :user
 	validates :name, :description, presence: true
-	validates_inclusion_of :name, in: Talent_choices['profession']
+	#validates_inclusion_of :name, in: Talent_choices['profession']
   	# validates_inclusion_of :sport, in: Talent_choices['sport']
   	# validates_inclusion_of :activity, in: Talent_choices['activity']
 
@@ -10,8 +10,8 @@ class Talent < ActiveRecord::Base
 		unless talent_choices["profession"].include? talent
 			talent_choices["profession"] << talent
  		end
- 		File.open("#{Rails.root}/config/talent_choices.yml", 'w') do |fo|
-		  fo.puts talent_choices.to_yaml
+ 		File.open("#{Rails.root}/config/talent_choices.yml", 'w') do |file|
+		  file.puts talent_choices.to_yaml
 		end
 	end
 

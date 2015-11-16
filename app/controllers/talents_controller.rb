@@ -11,6 +11,7 @@ class TalentsController < ApplicationController
 	def new
 		@user = current_user
 		@talent = Talent.new
+		@yaml = YAML::load_file("#{Rails.root}/config/talent_choices.yml")
 	end
 	def edit
 		@user = current_user

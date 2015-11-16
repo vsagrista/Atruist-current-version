@@ -3,8 +3,8 @@
             <%= form_for [@user,@talent] do |f| %>
             <div class="form-group">
                 <%= f.label "Choose a Talent, or type it if you can't find it " %>
-                <%= select @talent, :name, Talent_choices['profession'], class: "choice" %>
-                <%= f.text_field :name, autofocus: true, class: "form-control user-name",  value: "", id: "name" %>
+                <%= select @talent, :name, @yaml['profession'], class: "choice" %>
+                <%= f.text_field :name, autofocus: true, class: "form-control user-name", value: "", id: "name" %>
             </div>
             <div class="form-group">
                 <%= f.label "Add a Description :" %><%= f.text_field :description, autofocus: true, class: "form-control user-name" %>
