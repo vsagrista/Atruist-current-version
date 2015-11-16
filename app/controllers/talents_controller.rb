@@ -11,8 +11,9 @@ class TalentsController < ApplicationController
 	def new
 		@user = current_user
 		@talent = Talent.new
-		@yaml = YAML::load_file("#{Rails.root}/config/talent_choices.yml")
+		@yaml = (YAML::load_file("#{Rails.root}/config/talent_choices.yml")['profession'] ).sort! { |a,b| a.downcase <=> b.downcase }
 	end
+	
 	def edit
 		@user = current_user
 		@talent = Talent.find(params[:id])
