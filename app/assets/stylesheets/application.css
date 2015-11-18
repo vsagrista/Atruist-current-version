@@ -30,6 +30,13 @@
     background: none;
 }
 
+.carousel-inner > .item {
+    -webkit-transition: 1.4s ease-in-out left;
+    -moz-transition: 1.4s ease-in-out left;
+    -o-transition: 1.4s ease-in-out left;
+    transition: 1.4s ease-in-out left;
+}
+
 .dashboard-notifiactions-container > h1{
     text-align: center;
     font-weight: lighter;

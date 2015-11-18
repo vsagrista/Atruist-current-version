@@ -70,6 +70,24 @@ $(document).on('input','#name', function () {
 });
 
 
+$(document).on('click',("#how-it-works"), function(event) {
+    $('html, body').animate({scrollTop: $("#first-step").offset().top}, 1000);
+    return false;
+});
+$(document).on('click',("#back-to-top"), function(event) {
+    $('html, body').animate({scrollTop: $(".log-in").offset().top}, 1000);
+    return false;
+});
+
+ $(document).ready(function() {
+    $('.carousel').carousel({
+      interval: 5000
+    })
+});
+
+
+
+
 
 
 
