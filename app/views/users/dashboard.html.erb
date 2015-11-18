@@ -1,80 +1,93 @@
 <body class="dashboard-body">
-<div class="wrapper skill-icon-area-container">
-    <div class="row">
-        <div class="col-md-6">
-            <h2 class="name">Welcome, <%= @user.name.capitalize %></h2>
-            <p>You have <strong><%= @user.minutes %> minutes</strong></p>
-        </div>
-        <div class="col-md-6">
-            <div class="skills-logo-area">
-                <img class="skills-icon" src="/assets/skills-icon2.jpg">
-                <h2><%= link_to "My Talents", user_talents_path(@user), class: "dashboard-my-talents-link" %></h2>
+    <div class="wrapper skill-icon-area-container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="name">Welcome, <%= @user.name.capitalize %></h2>
+                <p>You have <strong><%= @user.minutes %> minutes</strong></p>
             </div>
-       </div>
+            <div class="col-md-6">
+                <div class="skills-logo-area">
+                    <img class="skills-icon" src="/assets/skills-icon2.jpg">
+                    <h2>
+                    <%= link_to "My Talents", user_talents_path(@user), class: "dashboard-my-talents-link" %></h2>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-
-<div class="wrapper dashboard-wrapper">
-<div class="container dashboard-notifiactions-container">
-    <h1>Dashboard 
-        <% if @user.address.nil? %>
-        <img src="/assets/info-4.png" id="security-signup-icon">
-        <% end %>
-        <img src="/assets/thumb.png" id="security-signup-thumb"> 
-     </h1>
-     <% if @user.address.nil? %>
-         <p class="security-address-p">
-             You need to add your address to start searching for other altruists! Click here:
-             <%= link_to "Add Address", users_address_path %>
-         </p>
-     <% end %>
-
-       
-    <hr>
-    <div class="row">
-        <div class="col-md-8">
+    <div class="wrapper dashboard-wrapper">
+        <div class="container dashboard-notifiactions-container">
+            <h1>Dashboard <%if @user.address.nil? %> <img id=
+            "security-signup-icon" src="/assets/info-4.png"> <%end %> <img id=
+            "security-signup-thumb" src=
+            "/assets/thumb.png"></h1><%if @user.address.nil? %>
+            <p class="security-address-p">You need to add your address to start
+            searching for other altruists! Click here:
+            <%= link_to "Add Address", users_address_path %></p><%end %>
+            <hr>
             <div class="row">
                 <div class="col-md-6">
                     <h1 class="dashboard-notifications-label">RECEIVED</h1>
                     <div class="dashboard-notifications-box">
-                        <h2 class="dashboard-notifications-header">To Accept</h2>
+                        <h2 class="dashboard-notifications-header">To
+                        Accept</h2>
                         <p id="dashboard-notifications-ul">Transacion id:2</p>
-                    </div> 
+                    </div>
                     <div class="dashboard-notifications-box">
                         <h2 class="dashboard-notifications-header">To Rate</h2>
-                        <p id="dashboard-notifications-ul">Transaction id:10</p>
-                    </div>      
+                        <p id="dashboard-notifications-ul">Transaction
+                        id:10</p>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <h1 class="dashboard-notifications-label">SENT</h1>
                     <div class="dashboard-notifications-box">
-                        <h2 class="dashboard-notifications-header">Waiting acceptance</h2>
-                        <p id="dashboard-notifications-ul">Transaction id:10</p>
-                        <p id="dashboard-notifications-ul">Transaction id:11</p>
-                        <p id="dashboard-notifications-ul">Transaction id:12</p>
-                    </div>  
+                        <h2 class="dashboard-notifications-header">Waiting
+                        acceptance</h2>
+                        <p id="dashboard-notifications-ul">Transaction
+                        id:10</p>
+                        <p id="dashboard-notifications-ul">Transaction
+                        id:11</p>
+                        <p id="dashboard-notifications-ul">Transaction
+                        id:12</p>
+                    </div>
                     <div class="dashboard-notifications-box">
-                        <h2 class="dashboard-notifications-header">Waiting rating</h2>
-                        <p id="dashboard-notifications-ul">Transaction id:20</p>
-                    </div>     
+                        <h2 class="dashboard-notifications-header">Waiting
+                        rating</h2>
+                        <p id="dashboard-notifications-ul">Transaction
+                        id:20</p>
+                    </div>
+                </div>
+            </div><br>
+            <div class="container dashboard-notifiactions-container">
+                <h1>STATS <%if @user.address.nil? %> <img id=
+                "security-signup-icon" src="/assets/info-4.png"> <%end %>
+                <img id="security-signup-thumb" src=
+                "/assets/thumb.png"></h1><%if @user.address.nil? %>
+                <p class="security-address-p">You need to add your address to
+                start searching for other altruists! Click here:
+                <%= link_to "Add Address", users_address_path %></p><%end %>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4">
+                    <h2 class="dashboard-notifications-label">TOP USERS</h2>
+                    <div id="chart-1">
+                        <%= pie_chart User.group(:name).count, height: "150px" %>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h2 class="dashboard-notifications-label">TOP TALENTS</h2>
+                    <div id="chart-1">
+                        <%= bar_chart Talent.group(:name).count,height: "150px" %>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h2 class="dashboard-notifications-label">NEWEST USERS</h2>
+                    <div id="chart-1">
+                        <%= line_chart User.group(:created_at).count,height: "150px" %>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <h1 class="dashboard-notifications-label">Active Users near you</h1>
-            <div class="dashboard-notifications-box">   
-                <div class="calendar">
-                    <div id="chart-1"></div>
-                        <%= pie_chart User.group(:name).count, class:"chart" %>
-                    </div>
-                </div>
-             </div> 
-        </div>
     </div>
-    
-</div>
-</div>
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-
 </body>

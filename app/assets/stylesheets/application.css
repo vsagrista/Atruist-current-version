@@ -42,6 +42,16 @@
     font-weight: lighter;
     font-size: 2em;
 }
+.chart-container {
+    background: red
+}
+.chart-h2 {
+    text-align: center;
+    margin: 10px;
+}
+.chart {
+    height: 150px;
+}
 hr {
     border-top: 1px solid #583E3E;
 }
@@ -88,6 +98,11 @@ hr {
     border-bottom: 1px solid black;
 }
 
+.chart-1{
+    color: transparent !important;
+    border: 2px solid black;
+}
+
 /******************* Home page - not signed in ***************/
 
 .navbar-custom > li{
@@ -129,7 +144,7 @@ hr {
 }
 
 .sensitive-change {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .label {
@@ -631,6 +646,4 @@ animation: loading 5s linear infinite;
 .checkbox {
     width: 20px;
 }
-
-
 
