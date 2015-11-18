@@ -42,17 +42,34 @@ $(document).on('click', '.dashboard-notifications-header', function () {
 });
 
 $(document).on('mouseenter', '.skills-icon', function () {
-	//  $(".skills-icon").effect("highlight", {color:"#669966"}, 3000 );
-	// //$(".skills-icon").toggle( "highlight" );
-	// // $('.skills-icon').effect('highlight', {}, 3000)
 	$(this).siblings().effect('shake',{times:2})
-	// .css({border: '0 solid green'}).animate({
- //        borderWidth: 4
- //    }, 1000);
 })
+ 
 
-// $(document).ready(function() {
-//    $(".calendar").fullCalendar(
-//   );
-// });
-//    
+function processData(data, errors){
+	if (data.length>0){
+		$('#thumb').show();
+	}
+	else {
+		$('#thumb').hide();
+	}
+}
+
+$(document).on('input','#name', function () {
+	var word = $(this).val();
+	var url = "http://api.wordnik.com/v4/word.json/"+ word +"/definitions?limit=1&includeRelated=true&useCanonical=false&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5"
+	if (word.length > 0){
+		$.ajax({
+	    url: url,
+	    success: processData
+	    });
+	}
+	else {
+		$('#thumb').hide();
+	}
+});
+
+
+
+
+

@@ -298,6 +298,10 @@ hr {
     border-radius: 0 !important;
 }
 
+#thumb {
+    display: none;
+}
+
 /*********************** INDEX PAGES ************************/
 
 /**** Index - Talents ****/

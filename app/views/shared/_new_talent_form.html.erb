@@ -4,6 +4,7 @@
             <div class="form-group">
                 <%= f.label "Choose a Talent, or type it if you can't find it " %>
                 <%= select @talent, :name, @yaml, class: "choice" %>
+                <img src="/assets/thumb.png" id="thumb">  
                 <%= f.text_field :name, autofocus: true, class: "form-control user-name", value: "", id: "name" %>
             </div>
             <div class="form-group">

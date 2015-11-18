@@ -32,7 +32,6 @@ feature "Signing in" do
       click_button 'Sign in'
     expect(page).to have_content 'Dashboard'
     end
-    
   end
 
   given(:other_user) { User.create(:email => 'other@example.com', :password => 'rous') }
