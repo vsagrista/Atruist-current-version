@@ -1,5 +1,6 @@
 class Talent < ActiveRecord::Base
 	belongs_to :user
+	has_many :transactions
 	validates :name, :description, presence: true
 	#validates_inclusion_of :name, in: Talent_choices['profession']
   	# validates_inclusion_of :sport, in: Talent_choices['sport']

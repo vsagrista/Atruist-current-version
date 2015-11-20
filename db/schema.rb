@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115180259) do
+ActiveRecord::Schema.define(version: 20151120093409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,22 @@ ActiveRecord::Schema.define(version: 20151115180259) do
   end
 
   add_index "talents", ["user_id"], name: "index_talents_on_user_id", using: :btree
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer  "talents_id"
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.boolean  "accepted",          default: false
+    t.boolean  "cancelled",         default: false
+    t.integer  "cancelation_count", default: 0
+    t.integer  "review",            default: 0
+    t.string   "review_comment"
+    t.string   "token"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  add_index "transactions", ["talents_id"], name: "index_transactions_on_talents_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
