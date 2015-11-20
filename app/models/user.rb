@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable  #, :trackable, 
   validates :name, presence: true
-  has_many      :sent, 
+  has_many      :sent_transactions, 
                 :class_name => "Transaction",
                 :foreign_key  => "sent_id"
 
-  has_many      :received, 
+  has_many      :received_transactions, 
                 :class_name => "Transaction", 
                 :foreign_key  => "received_id"
 end
