@@ -231,6 +231,7 @@ DEPENDENCIES
   fullcalendar-rails
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-ui-rails
   launchy
   less-rails
   momentjs-rails

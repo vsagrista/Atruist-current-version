@@ -12,4 +12,9 @@ class User < ActiveRecord::Base
   has_many      :received, 
                 :class_name => "Transaction", 
                 :foreign_key  => "received_id"
+
+  def self.get_cities_names
+    User.all.collect! {|user| user.address}.collect {|address| address.split(",")[1]}  
+  end
+
 end

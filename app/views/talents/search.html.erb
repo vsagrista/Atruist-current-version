@@ -1,0 +1,27 @@
+<h1>Search</h1>
+<p id="talents-search"></p>
+<!-- <input id="city-input"> -->
+<!-- <p id="cities-search"><%= @cities %></p> -->
+
+<div class="ui-widget">
+  <label for="tags">Tags: </label>
+  <input id="tags">
+</div>
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+var cities = <%= raw @cities %>
+var talents = <%= raw @talents %>
+console.log(cities)
+
+	$('#tags').autocomplete({
+      source: cities
+    });
+
+})
+
+
+
+</script>

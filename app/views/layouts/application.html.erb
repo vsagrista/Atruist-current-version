@@ -20,7 +20,7 @@
               <%end %>
             </li>
            <% if user_signed_in? %>
-              <li><%= link_to "New Search", users_path %></li>
+              <li><%= link_to "New Search",  users_talentsearch_path %></li>
               <li><%= link_to "Settings", edit_user_path(current_user) %></li>
               <li>
               <%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %>

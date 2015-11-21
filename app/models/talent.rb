@@ -16,4 +16,8 @@ class Talent < ActiveRecord::Base
 		end
 	end
 
+	def self.get_talents_and_cities_names
+		Talent.all.collect! {|talent| talent.name}
+	end
+
 end

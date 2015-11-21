@@ -28,5 +28,21 @@ class Api::V1::BaseController < ApplicationController
   	render :json => User.all.collect! {|user| user.address}.collect {|address| address.split(",")[1]}	
   end
 
+  def get_city_data
+    users = User.where("address like ?", "%#{params[:city]}%")
+   
+    #Array.new(users.length).each_with_index.map { |x,index| [users[index].talents] }
+    Array.new(users.length).each_with_index.map { |x,index|  ## gets all talents for a user
+      [:name => users[index].name,
+       :id   => users[index].id, 
+       :talents => users[index].talents.order('rating DESC')] }
+    User.where("address like ?", "%badalona%").collect! {|user| user.talents}
+  end
+
+  def get_talents_sorted
+     binding.pry
+
+  end
+
 
 end

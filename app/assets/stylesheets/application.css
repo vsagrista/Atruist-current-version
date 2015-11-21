@@ -345,6 +345,19 @@ hr {
 
 
 
+/*************************** SEARCH PAGE **********************/
+
+
+.ui-autocomplete {
+    width: 50%;
+    color: white;
+    background: green;
+    border-radius: 0px;
+}
+
+
+
+
 /************************ REST ******************************/
 
 .user-pic {

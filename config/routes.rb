@@ -4,12 +4,14 @@ devise_for :users
 
 get "/users/dashboard" => "users#dashboard"
 get "/users/address" => "users#address"
-get "/users/search" => "talents#search"
+get "/users/talentsearch" => "talents#search"
 
 namespace :api  do
   namespace :v1 do
   	get "/addresses" => "base#addresses"
   	get "/addresses/cities" => "base#cities"
+    get "/data/:city" => "base#get_city_data"
+    get "/data/:city/:talents" => "base#get_talents_sorted"
     resources :base, only: [:index, :show]
   end
 end
@@ -26,7 +28,4 @@ scope "/" do
   	resources :talents
   end
 end
-
-
- 
-end
+ end

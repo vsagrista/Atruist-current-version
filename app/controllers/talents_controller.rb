@@ -8,6 +8,11 @@ class TalentsController < ApplicationController
 	def show
 	end
 
+	def search
+		@talents = Talent.get_talents_and_cities_names
+		@cities = User.get_cities_names
+	end
+
 	def new
 		@user = current_user
 		@talent = Talent.new
