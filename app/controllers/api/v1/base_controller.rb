@@ -20,28 +20,23 @@ class Api::V1::BaseController < ApplicationController
   	end
   end
 
-  def addresses
-  	render :json => User.all.collect! {|user| user.address}
-  end
-
   def cities
   	render :json => User.all.collect! {|user| user.address}.collect {|address| address.split(",")[1]}	
   end
 
-  def get_city_data
+  def get_users_with_talents_in_city
     users = User.where("address like ?", "%#{params[:city]}%")
-   
-    #Array.new(users.length).each_with_index.map { |x,index| [users[index].talents] }
-    Array.new(users.length).each_with_index.map { |x,index|  ## gets all talents for a user
-      [:name => users[index].name,
-       :id   => users[index].id, 
-       :talents => users[index].talents.order('rating DESC')] }
+    render :json => 
     User.where("address like ?", "%badalona%").collect! {|user| user.talents}
   end
 
-  def get_talents_sorted
-     binding.pry
-
+  def get_top_rated_talents_for_city
+      talents = Talent.where(city: params[:city]).select{|talent| talent.name == params[:talent]}.sort_by{|talent| talent[:rating]} #.order('rating DESC')
+      render :json => top_talents_and_users =  Array.new(talents.length).each_with_index.map { |x,index|  ## gets all talents for a user
+      [:user_name => User.find( talents[index].user_id ).name,  
+        :user_id   => User.find( talents[index].user_id ).id,
+        :found => talents[index]
+        ] }.reverse
   end
 
 

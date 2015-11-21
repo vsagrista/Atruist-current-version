@@ -8,10 +8,10 @@ get "/users/talentsearch" => "talents#search"
 
 namespace :api  do
   namespace :v1 do
-  	get "/addresses" => "base#addresses"
-  	get "/addresses/cities" => "base#cities"
-    get "/data/:city" => "base#get_city_data"
-    get "/data/:city/:talents" => "base#get_talents_sorted"
+  	get "/talents" => "base#index"
+  	get "/cities" => "base#cities"
+    get "/cities/:city/talents" => "base#get_users_with_talents_in_city"
+    get "/cities/:city/talents/:talent" => "base#get_top_rated_talents_for_city"
     resources :base, only: [:index, :show]
   end
 end

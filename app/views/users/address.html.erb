@@ -3,7 +3,7 @@
         <div class="col-md-6">
             <h2 class="name">Welcome, <%= @user.name.capitalize %></h2>
             <% if @user.address.nil? %>
-            	<p>Add your address on this page</p>
+            	<p>Add your address on this page <br> Format: street, city, country (no numbers)</p>
             <% else %>
             	<p>Your Address: <i><%= @user.address %></i></p>
            	<% end %>   
@@ -27,7 +27,7 @@
 	    <img src="/assets/info-4.png" id="security-signup-icon">  
 	    </h1>
 	    <p class="security-signup-p text-center">Street, City, Country (NO NUMBER).<br>
-      * Home number and/or phone number can be sent privately
+      * Home number and/or phone number is sent privately to other users
       </p>
 	    <hr>
    		<div class="text-center">
