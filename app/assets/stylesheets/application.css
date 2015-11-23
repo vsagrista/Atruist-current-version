@@ -341,10 +341,6 @@ hr {
 }
 
 
-
-
-
-
 /*************************** SEARCH PAGE **********************/
 
 
@@ -353,6 +349,10 @@ hr {
     color: white;
     background: green;
     border-radius: 0px;
+}
+
+.city-search-icon {
+    width: 5%;
 }
 
 /************************ REST ******************************/

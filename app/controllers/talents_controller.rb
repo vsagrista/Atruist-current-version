@@ -9,6 +9,7 @@ class TalentsController < ApplicationController
 	end
 
 	def search
+		@user = current_user
 		@talents = Talent.get_talents_and_cities_names
 		@cities = Talent.get_cities
 	end
