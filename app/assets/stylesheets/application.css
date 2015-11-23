@@ -86,7 +86,7 @@ hr {
 }
 .dashboard-notifications-label {
     text-align: center;
-    background: rgba(14, 140, 116, 0.8);
+    background: rgba(14, 140, 116, 1);
     border-bottom: 1px solid black;
 }
 
