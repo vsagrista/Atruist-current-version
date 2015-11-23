@@ -1,26 +1,145 @@
-<h1>Search</h1>
+
 <p id="talents-search"></p>
-<!-- <input id="city-input"> -->
-<!-- <p id="cities-search"><%= @cities %></p> -->
+
 
 <div class="ui-widget">
-  <label for="tags">Tags: </label>
+  <label for="tags">Pick a city: </label>
   <input id="tags">
+   <label for="datas">Pick a skill: </label>
+
+  <select name="datas" id="datas">
+  </select>
 </div>
 
-
+<div class="container search-tabs">
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="active">
+            <a data-toggle="tab" href="#all-skills" id="skill-label">All skills</a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#top-rated-skill">Chosen skill</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade in active" id="all-skills">
+            <!-- <p>Tutorials Point is a place for beginners in all technical
+            areas. This website covers most of the latest technologies and
+            explains each of the technology with simple examples. You also
+            have a <b>tryit</b> editor, wherein you can edit your code and
+            try out different possibilities of the examples.</p> -->
+        </div>
+        <div class="tab-pane fade" id="top-rated-skill">
+            <!-- <p>top-rated-skill is a mobile operating system developed and distributed
+            by Apple Inc. Originally released in 2007 for the iPhone, iPod
+            Touch, and Apple TV. iOS is derived from OS X, with which it
+            shares the Darwin foundation. iOS is Apple's mobile version of
+            the OS X operating system used on Apple computers.</p> -->
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
 
+var Search = function(city,talent){
+	this.city = city;
+	this.talent = talent;
+}
+
+
+function populateSelect(response){
+	$('#datas').empty();
+	var talentsFound = []
+	for(var i = 0; i < response.length; i++){
+		//console.log(response[i].name)
+		if(talentsFound.indexOf(response[i].name) == -1){
+			var obj = {};
+			obj[i.toString()] = response[i].name;
+			talentsFound.push(response[i].name);
+		}
+	}
+	displaySelectedSkills(talentsFound)
+}
+	
+function processResponse(response,option){
+	if(option == 1){
+		populateSelect(response);
+	}
+	else {
+		populateTags(response);
+	}
+}
+function populateTags(response){
+	console.log(response)
+}
+
+// function printResponse(response) {
+// 	console.log(response.length);
+// 	if(response.length > 0){
+// 	processResponse(response)
+// }
+// }
+
+function ajaxCall(url,option){
+	$.ajax({url: url,
+  	success: 
+  	function (data) {
+        processResponse(data, option)}
+	});
+}
+
 $(document).ready(function(){
-var cities = <%= raw @cities %>
-var talents = <%= raw @talents %>
-console.log(cities)
-
+	var cities = <%= raw @cities %>
+	var talents = <%= raw @talents %>
 	$('#tags').autocomplete({
-      source: cities
+      source: cities,
+	  select: function(event, ui) {
+        	if (ui.item) {
+	        	$('#tags').val(ui.item.value);
+	        	var search = new Search(val(ui.item.value), "");
+	        	$('#skill-label').empty();
+	        	$('#skill-label').append('All skills in '+ (ui.item.value));
+	        	var city = ui.item.value;
+	        	var url = "http://localhost:3000/api/v1/"+city+"/talents";
+	        	ajaxCall(url,1);
+    		}
+   		}
     });
-
 })
+// $(document).ready(function(){
+// 	"/cities/:city/talents/:talent"
+// })
+$(document).ready(function(){
+	var city = $('#tags').val()
+	var talent = $(this).val()
+	console.log(city, $('select').length)
+	if ($('select').length == 1){
+		$('select').click(function(){
+			var url = "http://localhost:3000/api/v1/"+city+"/talents/"+talent
+			console.log(city)
+			ajaxCall(url,2)
+		});
+	}
+	else {
+		$('select').on('change', function () {
+		   var valueSelected = this.value;
+		   console.log(city)
+		   var url = "http://localhost:3000/api/v1/"+valueSelected+"/talents"+$(this).val()
+			ajaxCall(url,2)
+		});
+	}
+})
+
+
+// var data = [{'1':'Name'}, {'2': 'Age'}, {'3': 'Gender'}];
+// var $select = $('#datas');
+// $.each(data, function(i, val){
+//     $select.append($('<option />', { value: (i+1), text: val[i+1] }));
+// });
+function displaySelectedSkills(selected){
+	for (var i=0;i<selected.length;i++){
+	   $('<option/>').val(selected[i]).html(selected[i]).appendTo('#datas');
+
+	}
+}
 
 
 

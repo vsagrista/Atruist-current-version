@@ -10,6 +10,7 @@ namespace :api  do
   namespace :v1 do
   	get "/talents" => "base#index"
   	get "/cities" => "base#cities"
+    get "/:city/talents" => "base#get_talents_for_city"
     get "/cities/:city/talents" => "base#get_users_with_talents_in_city"
     get "/cities/:city/talents/:talent" => "base#get_top_rated_talents_for_city"
     resources :base, only: [:index, :show]

@@ -10,7 +10,7 @@ class TalentsController < ApplicationController
 
 	def search
 		@talents = Talent.get_talents_and_cities_names
-		@cities = User.get_cities_names
+		@cities = Talent.get_cities
 	end
 
 	def new
@@ -28,6 +28,7 @@ class TalentsController < ApplicationController
 		talent = Talent.new(talent_params)
 		talent.add_talent_if_not_on_yaml_list(params[:talent][:name])
 		talent.user_id = current_user.id
+		talent.city = current_user.address.split(",")[1]
 		if talent.save
       flash[:notice] = "Talent saved!"
     else 

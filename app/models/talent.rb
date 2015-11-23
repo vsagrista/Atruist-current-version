@@ -20,4 +20,8 @@ class Talent < ActiveRecord::Base
 		Talent.all.collect! {|talent| talent.name}
 	end
 
+	def self.get_cities 
+		Talent.uniq.pluck(:city)
+	end
+
 end

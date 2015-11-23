@@ -30,6 +30,11 @@ class Api::V1::BaseController < ApplicationController
     User.where("address like ?", "%badalona%").collect! {|user| user.talents}
   end
 
+  def get_talents_for_city
+    render :json => Talent.where(city: params[:city].split(' ')[0])  
+  end
+
+
   def get_top_rated_talents_for_city
       talents = Talent.where(city: params[:city]).select{|talent| talent.name == params[:talent]}.sort_by{|talent| talent[:rating]} #.order('rating DESC')
       render :json => top_talents_and_users =  Array.new(talents.length).each_with_index.map { |x,index|  ## gets all talents for a user
