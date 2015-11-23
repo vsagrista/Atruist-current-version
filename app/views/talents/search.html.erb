@@ -4,30 +4,35 @@
 
 <div class="ui-widget">
   <label for="tags">Pick a city: </label>
-  <input id="tags">
+  <input id="tags" class="search-field">
    <label for="datas">Pick a talent: </label>
-  <select name="datas" id="datas">
+  <select name="datas" id="datas" class="search-field">
   </select>
 </div>
 
 <div class="container search-tabs">
-    <ul class="nav nav-tabs" id="myTab">
-        <li class="active">
-            <a data-toggle="tab" href="#all-skills" id="skill-label">All Talents</a>
-        </li>
-        <li>
-            <a data-toggle="tab" href="#top-rated-skill">Chosen Talent</a>
-        </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade in active" id="all-skills">
-             <p>Search in a city to get a list of the talents there.</p>
-        </div>
-        <div class="tab-pane fade" id="top-rated-skill">
-             <p id="talent-not-picked">Pick a talent to see the talents on the city</p>
-        </div>
-    </div>
+<ul id = "myTab" class = "nav nav-tabs">
+   <li class = "active">
+      <a href = "#all-skills" data-toggle = "tab" id="skill-label">
+         All Talents
+      </a>
+   </li>
+   
+   <li><a href = "#top-rated-skills" id="top-rated-skills-tab" data-toggle = "tab">Chosen Talent</a></li>
+</ul>
+
+<div id = "myTabContent" class = "tab-content">
+
+   <div class = "tab-pane fade in active" id = "all-skills">
+      <p>Search in a city to get a list of the talents there.</p>
+   </div>
+   
+   <div class = "tab-pane fade" id = "top-rated-skills">
+       <p id="talent-not-picked">Pick a talent to see the talents on the city</p>
+   </div> 
 </div>
+</div>  
+
 <script type="text/javascript">
 
 var Search = function(city,talent){
@@ -69,9 +74,10 @@ function populateSelectOptionsAndTags(selected){
 }
 
 function populateTopSkillForTag(response){
+	console.log("top-skills-called")
 	$('#top-rated-skill').empty();
-	for (var i=0;i<selected.length;i++){
-		$('<p/>').val(selected[i]).html(selected[i]).appendTo('#top-rated-skill');
+	for (var i=0;i<response.length;i++){
+		$('<p/>').val(response[i]).html(response[i]).appendTo('#top-rated-skill');
 	}
 }
 
@@ -106,9 +112,20 @@ $(document).ready(function(){
 	var talent = $(this).val();
 	$('select').on('change', function () {
 	   var valueSelected = this.value;
-	   var url = "http://localhost:3000/api/v1/"+newSeach.city+"/talents"+talent;
+	   var url = "http://localhost:3000/api/v1/"+newSeach.city+"/talents/"+talent;
 		ajaxCall(url,2);
 	});
+})
+
+$(document).ready(function(){
+	$('#top-rated-skills-tab').click(function(){
+	if ( $('#talent-not-picked').length  ){
+		setTimeout(function(){
+    		$('.search-field').animate({backgroundColor: 'green'}).animate({backgroundColor: 'transparent'},'slow')
+    	},1000)
+    
+	}
+	})
 })
 
 </script>
