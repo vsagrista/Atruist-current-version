@@ -1,37 +1,31 @@
-
 <p id="talents-search"></p>
-
-
 <div class="ui-widget">
-  <label for="tags">Pick a city: </label>
-  <input id="tags" class="search-field">
-   <label for="datas">Pick a talent: </label>
-  <select name="datas" id="datas" class="search-field">
-  </select>
+    <label for="tags">Pick a city:</label> <input class="search-field" id=
+    "tags"> 
 </div>
-
 <div class="container search-tabs">
-<ul id = "myTab" class = "nav nav-tabs">
-   <li class = "active">
-      <a href = "#all-skills" data-toggle = "tab" id="skill-label">
-         All Talents
-      </a>
-   </li>
-   
-   <li><a href = "#top-rated-skills" id="top-rated-skills-tab" data-toggle = "tab">Chosen Talent</a></li>
-</ul>
-
-<div id = "myTabContent" class = "tab-content">
-
-   <div class = "tab-pane fade in active" id = "all-skills">
-      <p>Search in a city to get a list of the talents there.</p>
-   </div>
-   
-   <div class = "tab-pane fade" id = "top-rated-skills">
-       <p id="talent-not-picked">Pick a talent to see the talents on the city</p>
-   </div> 
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="active">
+            <a data-toggle="tab" href="#all-skills" id="skill-label">All
+            Talents</a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#top-rated-skills" id=
+            "top-rated-skills-tab">Chosen Talent</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade in active" id="all-skills">
+            <p>Search in a city to get a list of the talents there.</p>
+        </div>
+        <div class="tab-pane fade" id="top-rated-skills">
+            <p id="talent-not-picked">Pick a city first</p><label for=
+            "datas">Pick a talent:</label> <select class="search-field" id=
+            "datas" name="datas">
+                </select>
+        </div>
+    </div>
 </div>
-</div>  
 
 <script type="text/javascript">
 
@@ -41,6 +35,10 @@ var Search = function(city,talent){
 }
 var newSeach = new Search('','');
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 
 function createArrayWithTalentsInCity(response){
 	$('#datas').empty();
@@ -49,11 +47,11 @@ function createArrayWithTalentsInCity(response){
 	for(var i = 0; i < response.length; i++){
 		if(talentsFound.indexOf(response[i].name) == -1){
 			var obj = {};
-			obj[i.toString()] = response[i].name;
+			obj[i.toString()] = capitalizeFirstLetter(response[i].name);
 			talentsFound.push(response[i].name);
 		}
 	}
-	populateSelectOptionsAndTags(talentsFound);
+	populateSelectOptionsAndTags(talentsFound.sort());
 }
 	
 function processResponse(response,option){
@@ -74,10 +72,20 @@ function populateSelectOptionsAndTags(selected){
 }
 
 function populateTopSkillForTag(response){
-	console.log("top-skills-called")
-	$('#top-rated-skill').empty();
+	$('.top-rated-p').remove();
 	for (var i=0;i<response.length;i++){
-		$('<p/>').val(response[i]).html(response[i]).appendTo('#top-rated-skill');
+			$("<p class='top-rated-p'>User: " +
+			response[i][0]['user_name'] +
+			" talent: " + 
+			response[i][0].found['name']+
+			" rating: " +
+			response[i][0].found['rating'] +
+			"</p>" + 
+			"<a href='http://localhost:3000/users/"+
+			response[i][0]['user_id'] + 
+			"/talents/" + 
+			response[i][0].found['id'] + 
+			"'>Contact</a>").appendTo('#top-rated-skills');
 	}
 }
 
@@ -96,11 +104,14 @@ $(document).ready(function(){
       source: cities,
 	  select: function(event, ui) {
         	if (ui.item) {
+        		$('.top-rated-p').remove();
         		newSeach.city = '';
         		newSeach.city = ui.item.value;
 	        	$('#tags').val(newSeach.city);
 	        	$('#skill-label').empty();
 	        	$('#skill-label').append('All talents in '+ (newSeach.city));
+	        	$('#talent-not-picked').empty();
+	        	$('#talent-not-picked').append('Choose a talent to see how it does in '+ (newSeach.city))
 	        	var url = "http://localhost:3000/api/v1/"+newSeach.city+"/talents";
 	        	ajaxCall(url,1);
     		}
@@ -109,23 +120,24 @@ $(document).ready(function(){
 })
 
 $(document).ready(function(){
-	var talent = $(this).val();
 	$('select').on('change', function () {
-	   var valueSelected = this.value;
-	   var url = "http://localhost:3000/api/v1/"+newSeach.city+"/talents/"+talent;
+	   var talent = this.value;
+	   var url = "http://localhost:3000/api/v1/cities/"+newSeach.city+"/talents/"+talent;
+	   console.log(url)
 		ajaxCall(url,2);
 	});
 })
 
-$(document).ready(function(){
-	$('#top-rated-skills-tab').click(function(){
-	if ( $('#talent-not-picked').length  ){
-		setTimeout(function(){
-    		$('.search-field').animate({backgroundColor: 'green'}).animate({backgroundColor: 'transparent'},'slow')
-    	},1000)
-    
-	}
-	})
-})
+// $(document).ready(function(){
+// 	$('#top-rated-skills-tab').click(function(){
+// 	if ( $('#talent-not-picked').length  ){
+// 		$('#talent-not-picked').remove();
+// 		setTimeout(function(){
+//     		$('.search-field').animate({backgroundColor: 'green'}).animate({backgroundColor: 'transparent'},'slow')
+//     	},1000)
+// 	}
+// 	})
+// })
+
 
 </script>

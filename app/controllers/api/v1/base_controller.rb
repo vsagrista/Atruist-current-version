@@ -37,7 +37,8 @@ class Api::V1::BaseController < ApplicationController
 
   def get_top_rated_talents_for_city
       talents = Talent.where(city: params[:city]).select{|talent| talent.name == params[:talent]}.sort_by{|talent| talent[:rating]} #.order('rating DESC')
-      render :json => top_talents_and_users =  Array.new(talents.length).each_with_index.map { |x,index|  ## gets all talents for a user
+      render :json => top_talents_and_users =  
+      Array.new(talents.length).each_with_index.map { |x,index|  ## gets all talents for a user
       [:user_name => User.find( talents[index].user_id ).name,  
         :user_id   => User.find( talents[index].user_id ).id,
         :found => talents[index]
