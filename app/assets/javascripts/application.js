@@ -11,6 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
+//= require jquery-ui
+//= require jquery-ui/autocomplete
 //= require twitter/bootstrap
 //= require turbolinks
 //= require moment
