@@ -24,13 +24,12 @@ class Api::V1::BaseController < ApplicationController
   	render :json => User.all.collect! {|user| user.address}.collect {|address| address.split(",")[1]}	
   end
 
-  def get_users_with_talents_in_city  # 1st call
+  def get_users_with_talents_in_city  
     users = User.where("address like ?", "%#{params[:city]}%")
     render :json => users.collect! {|user| user.talents}
   end
 
-  def get_talents_for_city   
-    #binding.pry
+  def get_talents_for_city   # 1st call
     render :json => Talent.where(city: params[:city].split(' ')[0])  
   end
 
