@@ -98,7 +98,7 @@ function populateTopSkillForTag(response){
 			" rating: " +
 			response[i][0].found['rating'] +
 			"</p>" + 
-			"<a href='http://localhost:3000/users/"+
+			"<a href='https://localhost:3000/users/"+
 			response[i][0]['user_id'] + 
 			"/talents/" + 
 			response[i][0].found['id'] + 
@@ -129,7 +129,7 @@ $(document).ready(function(){
 	        	$('#skill-label').append('All talents in '+ (newSeach.city));
 	        	$('#talent-not-picked').empty();
 	        	$('#talent-not-picked').append('Choose a talent to see how it does in '+ (newSeach.city))
-	        	var url = "http://localhost:3000/api/v1/"+newSeach.city+"/talents";
+	        	var url = "https://localhost:3000/api/v1/"+newSeach.city+"/talents";
 	        	ajaxCall(url,1);
     		}
    		}
@@ -139,7 +139,7 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$('select').on('change', function () {
 	   var talent = this.value;
-	   var url = "http://localhost:3000/api/v1/cities/"+newSeach.city+"/talents/"+talent;
+	   var url = "https://localhost:3000/api/v1/cities/"+newSeach.city+"/talents/"+talent;
 	   console.log(url)
 		ajaxCall(url,2);
 	});
