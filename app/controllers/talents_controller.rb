@@ -6,6 +6,10 @@ class TalentsController < ApplicationController
 	end
 	
 	def show
+		@user = current_user
+		@receiver = User.find(params[:user_id])
+		@talent = Talent.find(params[:id])
+		@transaction = Transaction.new
 	end
 
 	def search

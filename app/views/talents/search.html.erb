@@ -108,7 +108,7 @@ function populateTopSkillForTag(response){
 		}
 	}
 	if(!$('.top-rated-p').length){
-		$("<p class='top-rated-p'>You are the only one with that talent in the city!!!</p>").appendTo('#top-rated-skills')
+		$("<p class='top-rated-p'>You are the only one with that talent in the city!!!</p>").appendTo('#top-rated-skills');
 	}
 }
 
@@ -146,7 +146,6 @@ $(document).ready(function(){
 	$('select').on('change', function () {
 	   var talent = this.value;
 	   var url = "/api/v1/cities/"+newSeach.city+"/talents/"+talent;
-	   console.log(url)
 		ajaxCall(url,2);
 	});
 })

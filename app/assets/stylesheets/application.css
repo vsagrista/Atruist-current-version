@@ -359,6 +359,18 @@ hr {
     width: 5%;
 }
 
+/************************** START TRANSACTION  *****************/ 
+
+.transaction-button {
+    width: 30%;
+}
+
+
+.safety-message {
+    color: red;
+}
+
+
 /************************ REST ******************************/
 
 .user-pic {
@@ -634,9 +646,6 @@ hr {
     text-align: right;
 }
 
-.safety-message {
-    color: #75E862;
-}
 
 
 .skills-logo {

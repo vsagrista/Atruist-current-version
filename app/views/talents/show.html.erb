@@ -1,0 +1,46 @@
+<div class="wrapper skill-icon-area-container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="name">Welcome, <%= @user.name.capitalize %></h2>
+            	<p>Find Altruists here</p>       
+        </div>
+        <div class="col-md-6">
+            <div class="skills-logo-area">
+                <img class="skills-icon" src="/assets/contact-icon.jpg">
+            		<h2><bold>Contact this user</bold></h2>  
+            </div>
+       </div>
+    </div>
+</div>
+<br>
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-6 map-div">
+    <p class="pull-right">Remember, you have: <strong> <%= current_user.minutes %> minutes</strong> (You cannot send more than this)</p>
+      <img  src="http://maps.google.com/maps/api/staticmap?center=<%=@user.address%>&zoom=14&size=512x512&maptype=roadmap&sensor=false&markers=<%=@user.address%>" alt="Static, Marked Map of Chicago, Illinois">
+      </img>
+      <p class="safety-message">For safety reasons, <%= @receiver.name.capitalize %>'s address is approximate</p>
+    </div>
+    <div class="col-md-6 ">
+      <h1>Altruist <%= @receiver.name.to_s.capitalize %> </h1>    
+      <p>Can help you with: <%= @talent.name.upcase %> 
+         near <%= @user.address.split(",").last.split(" ")[0].capitalize %>
+      </p>
+      <p>Description: <%= @talent.description %></p>
+      <p>How <%= @user.name.to_s.capitalize %> rates 
+         in <%= @talent.name %> : 
+         <%= @talent.rating %>
+      </p>    
+      <h2>Can my this talent help you?</h2>
+      <%= mail_to @receiver.email do %>
+      	<p><strong>Email me:</strong> 
+      	<span><%= @receiver.email %></span>
+      	</p>
+      <% end %>
+      <h2>We already talked? </h2>
+      <button class="btn btn-primary transaction-button" id="start-transaction">Yes
+      </button>  
+    </div>
+  </div>
+</div>
+  

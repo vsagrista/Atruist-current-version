@@ -24,9 +24,12 @@ end
 root :to => "welcome#welcome"
 
 scope "/" do
-  resources :users
-  resources :users do
-  	resources :talents
+    resources :users
+    resources :users do
+    	resources :talents
+      resources :talents do 
+        resources :transactions
+      end
+    end
   end
-end
  end
