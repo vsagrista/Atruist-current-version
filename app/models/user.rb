@@ -12,4 +12,6 @@ class User < ActiveRecord::Base
   has_many      :received, 
                 :class_name => "Transaction", 
                 :foreign_key  => "received_id"
+
+  
 end

@@ -89,20 +89,26 @@ function populateSelectOptionsAndTags(selected){
 }
 
 function populateTopSkillForTag(response){
+	var currentUserId = <%= raw @user.id %>;
 	$('.top-rated-p').remove();
 	for (var i=0;i<response.length;i++){
+		if (response[i][0]['user_id'] != currentUserId){
 			$("<p class='top-rated-p'>User: " +
-			response[i][0]['user_name'] +
-			" talent: " + 
-			response[i][0].found['name']+
-			" rating: " +
-			response[i][0].found['rating'] +
-			"</p>" + 
-			"<a href='/users/"+
-			response[i][0]['user_id'] + 
-			"/talents/" + 
-			response[i][0].found['id'] + 
-			"'>Contact</a>").appendTo('#top-rated-skills');
+				response[i][0]['user_name'] +
+				" talent: " + 
+				response[i][0].found['name']+
+				" rating: " +
+				response[i][0].found['rating'] +
+				"</p>" + 
+				"<a class='top-rated-p' href='/users/"+
+				response[i][0]['user_id'] + 
+				"/talents/" + 
+				response[i][0].found['id'] + 
+				"'>Contact</a>").appendTo('#top-rated-skills');
+		}
+	}
+	if(!$('.top-rated-p').length){
+		$("<p class='top-rated-p'>You are the only one with that talent in the city!!!</p>").appendTo('#top-rated-skills')
 	}
 }
 
