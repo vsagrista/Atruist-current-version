@@ -30,7 +30,7 @@ class Api::V1::BaseController < ApplicationController
   end
 
   def get_talents_for_city   # 1st call
-    render :json => Talent.where(city: params[:city].split(' ')[0])  
+    render :json => Talent.where("city like ?", "%#{params[:city]}%")  
   end
 
 
