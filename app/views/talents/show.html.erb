@@ -37,9 +37,10 @@
       	<span><%= @receiver.email %></span>
       	</p>
       <% end %>
-      <h2>We already talked? </h2>
-      <button class="btn btn-primary transaction-button" id="start-transaction">Yes
-      </button>  
+      <h2>We already talked? Click to start a request</h2>
+      <%= button_to "REQUEST TIME", 
+      new_user_talent_transaction_path(@user,@talent), :method => "get", class: "btn btn-primary transaction-button"  %>
+      
     </div>
   </div>
 </div>
