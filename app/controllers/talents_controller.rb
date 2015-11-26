@@ -35,6 +35,7 @@ class TalentsController < ApplicationController
 		talent.user_id = current_user.id
 		talent.city = current_user.address.split(",")[1]
 		if talent.save
+			UserMailer.welcome_email(current_user).deliver
       flash[:notice] = "Talent saved!"
     else 
       flash[:notice] = talent.errors.full_messages.to_sentence
