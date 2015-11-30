@@ -1,4 +1,4 @@
-class UserMailer < ApplicationMailer
+class UserMailer < ActionMailer::Base
 	layout 'mailer'
 	def welcome_email(user)
 	    @user = user

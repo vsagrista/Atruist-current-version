@@ -1,2 +1,21 @@
+<h1>New Transaction</h1>
 
-random_string = SecureRandom.hex.first(6)
+
+
+<%= form_for [@user,@talent,@transaction] do |f| %>
+<p>
+
+<%= f.label "Sumject" %>
+<%= f.text_field :subject %>	
+<%= f.label "Minutes" %>
+<%= f.number_field :minutes %>
+<%= f.label "Date" %>
+<%= f.date_select :date %>
+
+
+
+	<%=f.submit %>
+
+</p>
+<% end %>
+
