@@ -36,7 +36,7 @@ class TalentsController < ApplicationController
 		talent.city = current_user.address.split(",")[1]
 		if talent.save
 			#binding.pry
-			UserMailer.token_email(current_user).deliver!
+			UserMailer.welcome_email(current_user).deliver_now
       flash[:notice] = "Talent saved!"
     else 
       flash[:notice] = talent.errors.full_messages.to_sentence
