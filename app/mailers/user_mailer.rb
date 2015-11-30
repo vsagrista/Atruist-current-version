@@ -1,8 +1,11 @@
 class UserMailer < ActionMailer::Base
 	layout 'mailer'
-	def welcome_email(user)
+	def token_email(user)
 	    @user = user
-	    @url  = 'http://example.com/login'
-	    mail(to: "lanoriadesoria2@yahoo.com", subject: 'Welcome to My Awesome Site')
+	    mail(to: "#{@user.email}", subject: 'Your validation token', :from => "'Altruist Mailer' <altruistmailer@gmail.com>")
   	end
+  	# def welcome_email(user)
+  	# 	 @user = user
+  	# 	 mail(to: "#{@user.email}", subject: 'Welcome to Altruist!', :from => "'Altruist Mailer' <altruistmailer@gmail.com>")
+   #  end
 end

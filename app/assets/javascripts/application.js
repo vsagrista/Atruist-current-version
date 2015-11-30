@@ -86,8 +86,9 @@ $(document).on('click',("#back-to-top"), function(event) {
       interval: 5000
     })
 });
-
-
+$(function() {
+  $('.datepicker').datepicker();
+});
 
 
 

@@ -6,4 +6,8 @@ class Transaction < ActiveRecord::Base
  	belongs_to     :recipient,
                    :class_name => "User",
                    :foreign_key  => "recipient_id" 
+
+    def change_date_format(date)
+    	
+    end 
 end
