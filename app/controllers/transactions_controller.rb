@@ -16,6 +16,11 @@ class TransactionsController < ApplicationController
     	end
 	end
 
+	def show
+		@user = current_user
+		@transaction = Transaction.find(params[:id])
+	end
+
 	private
 	def transaction_params
 		params.require(:transaction).permit(:subject, :minutes)
