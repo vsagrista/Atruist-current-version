@@ -1,15 +1,25 @@
-<h1>New Transaction</h1>
-
-
-
+<div class="wrapper skill-icon-area-container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="name">Hey, <%= @user.name.capitalize %></h2>
+            <p>Ask for help here</p>  
+        </div>
+        <div class="col-md-6">
+            <div class="skills-logo-area">
+                <img class="skills-icon change" src="/assets/chang-1.png">
+            		<h2><bold>Get Help</bold></h2>   
+            </div>
+       </div>
+    </div>
+</div>
+<br>
 <div class="container">
 <%= form_for [@user,@talent,@transaction] do |f| %>
- <div class="form-group">
-
+<div class="form-group">
 <%= f.label "Subject" %>
 <%= f.text_field :subject, class: "form-control" %>
 </div>
- <div class="form-group">	
+<div class="form-group">	
 <%= f.label "Minutes" %>
 <%= f.number_field :minutes, class: "form-control"  %>
 </div>
@@ -18,14 +28,7 @@
 <%= f.label "Date" %>
 <%= f.text_field :date, :class => "datepicker form-control"%>
 </div>
-
-
-
-
-
-	<%=f.submit %>
-
-
+<%=f.submit class: "btn btn-primary" %>
 <% end %>
 </div>
 <script type="text/javascript">
