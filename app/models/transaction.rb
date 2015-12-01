@@ -1,4 +1,5 @@
 class Transaction < ActiveRecord::Base
+
 	belongs_to     :sender,
 	               :class_name => "User",
 	               :foreign_key  => "sender_id"
@@ -7,7 +8,14 @@ class Transaction < ActiveRecord::Base
                    :class_name => "User",
                    :foreign_key  => "recipient_id" 
 
-    def change_date_format(date)
-    	
+    def self.get_datetime_format(date)
+    	date = date.split("/")
+		"#{date[2]}-#{date[0]}-#{date[1]}"	
     end 
+
+    def self.generate_token(user)
+      token = SecureRandom.hex.first(6)
+      user.tokens << token
+      token
+    end
 end

@@ -1,4 +1,4 @@
-class TalentsController < ApplicationController
+   class TalentsController < ApplicationController
 	require 'yaml'
 	def index
 		@user = current_user
@@ -35,13 +35,11 @@ class TalentsController < ApplicationController
 		talent.user_id = current_user.id
 		talent.city = current_user.address.split(",")[1]
 		if talent.save
-			#binding.pry
-			UserMailer.welcome_email(current_user).deliver_now
-      flash[:notice] = "Talent saved!"
+      	flash[:notice] = "Talent saved!"
     else 
-      flash[:notice] = talent.errors.full_messages.to_sentence
+      	flash[:notice] = talent.errors.full_messages.to_sentence
     end
-      redirect_to user_talents_path(current_user)
+      	redirect_to user_talents_path(current_user)
 	end
 
 	def update
@@ -55,7 +53,7 @@ class TalentsController < ApplicationController
 	end
 
 	private 
-	  def talent_params
+	def talent_params
 	    params.require(:talent).permit(:name,:description)
-	  end
+	end
 end

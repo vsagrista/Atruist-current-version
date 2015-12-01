@@ -6,13 +6,24 @@ class TransactionsController < ApplicationController
 	end
 
 	def create
-		binding.pry
-		date = params[:transaction][:date].split("/")
-		date = "#{date[2]}-#{date[0]}-#{date[1]}"
-
-
-		#(id: integer, talents_id: integer, sender_id: integer, recipient_id: integer, accepted: boolean, cancelled: boolean, cancelation_count: integer, review: integer, review_comment: string, token: string, created_at: datetime, updated_at: datetime, minutes: integer, subject: string)
-		#random_string = SecureRandom.hex.first(6)
+		transaction = Transaction.new(transaction_params)
+		if transaction.save
+			flash[:notice] = "Transaction started!"
+			UserMailer.token_email(current_user).deliver_now
+			redirect_to users_dashboard_path
+    	else 
+      		flash[:notice] = transaction.errors.full_messages.to_sentence
+    	end
 	end
 
+	private
+	def transaction_params
+		params.require(:transaction).permit(:subject, :minutes)
+			.merge(
+			talents_id: params[:talent_id],
+			sender_id: current_user.id,
+			recipient_id: User.get_user_from_talent_id(params[:talent_id]),
+			date: Transaction.get_datetime_format(params[:transaction][:date]),
+			token: Transaction.generate_token(current_user))
+	end
 end
