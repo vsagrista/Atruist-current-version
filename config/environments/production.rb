@@ -11,7 +11,6 @@
   config.eager_load = true
 
   # Email settings
-  config.action_mailer.default_url_options = { :host => 'example.com' }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
   config.action_mailer.perform_deliveries = true
