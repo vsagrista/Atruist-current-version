@@ -13,6 +13,7 @@
   # Email settings
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
+  config.action_mailer.default_url_options = { host: 'mlpinit.com' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
