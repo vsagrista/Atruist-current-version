@@ -2,12 +2,12 @@
     <div class="row">
         <div class="col-md-6">
             <h2 class="name">Hey, <%= @user.name.capitalize %></h2>
-            <p>Ask for help here</p>  
+            <p>This is the state of this petition  </p>  
         </div>
         <div class="col-md-6">
             <div class="skills-logo-area">
-                <img class="skills-icon change" src="/assets/chang-1.png">
-            		<h2><bold>Get Help</bold></h2>   
+                <img class="skills-icon change" src="/assets/connected.jpg">
+            		<h2><bold>Your Petition</bold></h2>   
             </div>
        </div>
     </div>
@@ -15,6 +15,24 @@
 <br>
 <div class="container">
 	<p>Subject: <%= @transaction.subject %> </p>
+    <p>
+        <% if @sender == @user %>
+        With altruist: <%= @recipient.name %>
+        <% else %>
+        From altruist: <%= @sender.name %>
+        <% end %>
+        
+    </p>
+    <p>
+       Accepted: <%= @transaction.accepted%>
+
+
+        
+    </p>
+    <p>
+    Rated: <%= @transaction.rated %>
+        
+    </p>
 
 
 

@@ -19,6 +19,8 @@ class TransactionsController < ApplicationController
 	def show
 		@user = current_user
 		@transaction = Transaction.find(params[:id])
+		@sender = User.find(@transaction.sender_id)
+		@recipient = User.find(@transaction.recipient_id)
 	end
 
 	private
