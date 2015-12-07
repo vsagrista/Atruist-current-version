@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'faker'
+
 gem 'rails_12factor'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
