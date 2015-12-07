@@ -5,7 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+User.destroy_all
+Talent.destroy_all
 talents = ["Cooking", "English Lessons", "Paining", "Math Lessons", "Coding Lessons"]
 5.times do 
 	User.create(
