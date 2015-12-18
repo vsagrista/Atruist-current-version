@@ -29,8 +29,8 @@
                     <h1 class="dashboard-notifications-label">RECEIVED</h1>
                     <div class="dashboard-notifications-box">
                         <h2 class="dashboard-notifications-header">To
-                        Accept (<%= get_sent_trans_not_accepted(@user).length %>) </h2>
-                        <% get_sent_trans_not_accepted(@user).each do |transaction| %>
+                        Accept (<%= get_not_accepted_transactions(@transactions_receiver).length %>) </h2>
+                        <% get_not_accepted_transactions(@transactions_receiver).each do |transaction| %>
                         <p id="dashboard-notifications-ul">Transacion id: 
                         <%= transaction.id %>
                         <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
@@ -38,8 +38,8 @@
                         <% end %>
                     </div>
                     <div class="dashboard-notifications-box">
-                        <h2 class="dashboard-notifications-header">To Rate (<%= get_sent_trans_not_rated(@user).length %>) </h2>
-                        <% get_sent_trans_not_rated(@user).each do |transaction| %>
+                        <h2 class="dashboard-notifications-header">To Rate (<%= get_not_rated_transactions(@transactions_sender).length %>) </h2>
+                        <% get_not_rated_transactions(@transactions_sender).each do |transaction| %>
                         <p id="dashboard-notifications-ul">Transacion id: 
                         <%= transaction.id %>
                         <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
@@ -51,8 +51,8 @@
                     <h1 class="dashboard-notifications-label">SENT</h1>
                     <div class="dashboard-notifications-box">
                         <h2 class="dashboard-notifications-header">Waiting
-                        acceptance (<%= get_received_trans_not_accepted(@user).length %>) </h2>
-                        <% get_received_trans_not_accepted(@user).each do |transaction| %>
+                        acceptance (<%= get_not_accepted_transactions(@transactions_sender).length %>) </h2>
+                        <% get_not_accepted_transactions(@transactions_sender).each do |transaction| %>
                         <p id="dashboard-notifications-ul">Transacion id: 
                         <%= transaction.id %> 
                          <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
@@ -61,8 +61,8 @@
                     </div>
                     <div class="dashboard-notifications-box">
                         <h2 class="dashboard-notifications-header">Waiting
-                        rating (<%= get_received_trans_not_rated(@user).length %>) </h2>
-                        <% get_received_trans_not_rated(@user).each do |transaction| %>
+                        rating (<%= get_not_rated_transactions(@transactions_sender).length %>) </h2>
+                        <% get_not_rated_transactions(@transactions_sender).each do |transaction| %>
                         <p id="dashboard-notifications-ul">Transacion id: 
                         <%= transaction.id %>
                          <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>

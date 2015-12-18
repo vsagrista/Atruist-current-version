@@ -6,6 +6,8 @@ include UsersHelper
 
   def dashboard
     @user = current_user	
+    @transactions_sender = Transaction.where(sender_id: current_user.id)
+    @transactions_receiver = Transaction.where(recipient_id: current_user.id)
   end
   
   def show

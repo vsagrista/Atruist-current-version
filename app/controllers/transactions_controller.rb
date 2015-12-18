@@ -4,7 +4,6 @@ class TransactionsController < ApplicationController
 	  @receiver = User.find(params[:user_id])
 	  @talent = Talent.find(params[:talent_id])
 	  @transaction = Transaction.new
-	  #binding.pry
 	end
 
 	def create
