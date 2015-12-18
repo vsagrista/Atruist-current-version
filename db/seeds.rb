@@ -14,7 +14,7 @@ talents = ["Cooking", "English Lessons", "Paining", "Math Lessons", "Coding Less
 		email: Faker::Internet.email, 
 		password: "12345678",
 		address: "#{Faker::Address.street_name}, #{Faker::Address.city}, #{Faker::Address.country}")
-	Talent.create(name: talents.sample, description: Faker::Lorem.sentence, city: User.last.address.split(",")[1].split(" ")[0])
+	Talent.create(name: talents.sample, description: Faker::Lorem.sentence, city: User.last.address.split(",")[1].split(" ")[0], user_id: User.last.id)
 end
 
 
