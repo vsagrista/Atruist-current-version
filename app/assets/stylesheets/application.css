@@ -370,6 +370,15 @@ hr {
     color: red;
 }
 
+.cancel-button {
+    background: red;
+    border-color: red;
+}
+.cancel-button:hover {
+    background: orange;
+    border: red;
+}
+
 
 /************************ REST ******************************/
 

@@ -14,7 +14,7 @@
 </div>
 <br>
 <div class="container">
-	<p>Subject: <%= @transaction.subject %> </p>
+	
     <p>
         <% if @sender == @user %>
         With altruist: <%= @recipient.name %>
@@ -23,17 +23,17 @@
         <% end %>
         
     </p>
+    <p>Subject: <%= @transaction.subject %> </p>
+    <p> When:  <%= @transaction.date %> </p>
+    <p> Minutes: <%= @transaction.minutes %> </p>
+    <% unless @transaction.accepted %>
+        <%= link_to "Accept", edit_user_talent_transaction_path(@user,@talent,@transaction), class: "btn btn-primary" %>
+        <%= link_to "Decline", edit_user_talent_transaction_path(@user,@talent,@transaction), class: "btn btn-primary cancel-button" %>
+    <% end %>
     <p>
-       Accepted: <%= @transaction.accepted%>
-
-
-        
+       Accepted: <%= @transaction.accepted%>   
     </p>
     <p>
-    Rated: <%= @transaction.rated %>
-        
+        Rated: <%= @transaction.rated %>      
     </p>
-
-
-
 </div>

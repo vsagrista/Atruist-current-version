@@ -20,13 +20,20 @@ class TransactionsController < ApplicationController
 	def show
 		@user = current_user
 		@transaction = Transaction.find(params[:id])
+		@talent = Talent.where(transaction_id: @transaction.id)
 		@sender = User.find(@transaction.sender_id)
 		@recipient = User.find(@transaction.recipient_id)
 	end
 
+	def edit
+
+	end
+
 	private
 	def transaction_params
-		params.require(:transaction).permit(:subject, :minutes)
+		params.require(:transaction).permit(
+			:subject, :minutes, :accepted, :accepted, :cancelled, 
+			:cancelation_count, :review, :review_comment)
 			.merge(
 			talents_id: params[:talent_id],
 			sender_id: current_user.id,
