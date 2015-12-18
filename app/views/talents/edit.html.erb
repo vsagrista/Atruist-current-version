@@ -13,3 +13,14 @@
     </div>
 </div>
 <%= render "shared/new_talent_form.html.erb" %>
+
+<script type="text/javascript">
+
+   $(document).ready(function(){
+    var talent = "<%= raw @talent.name %>";
+    var description = "<%= raw @talent.description %>";
+    $('#name').val(talent);
+    $('#talent_description').val(description);
+});
+
+</script>

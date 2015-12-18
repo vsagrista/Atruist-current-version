@@ -52,6 +52,13 @@
 		redirect_to user_talents_path(current_user)
 	end
 
+	def edit 
+		@user = current_user
+		@talent = Talent.find(params[:id])
+		@yaml = (YAML::load_file("#{Rails.root}/config/talent_choices.yml")['profession'] ).sort! { |a,b| a.downcase <=> b.downcase }
+	end
+
+
 	private 
 	def talent_params
 	    params.require(:talent).permit(:name,:description)
