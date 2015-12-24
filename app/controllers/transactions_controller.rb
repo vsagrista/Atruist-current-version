@@ -29,6 +29,10 @@ class TransactionsController < ApplicationController
 
 	end
 
+	def update
+		binding.pry
+	end
+
 	private
 	def transaction_params
 		params.require(:transaction).permit(

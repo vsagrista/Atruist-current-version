@@ -30,6 +30,14 @@
         <%= link_to "Accept", edit_user_talent_transaction_path(@user,@talent,@transaction), class: "btn btn-primary" %>
         <%= link_to "Decline", edit_user_talent_transaction_path(@user,@talent,@transaction), class: "btn btn-primary cancel-button" %>
     <% end %>
+
+
+<%= form_for @transaction, :url => { :action => "update"} do |t| %>
+<%= t.hidden_field :accepted, :value => true %>
+    <%= t.submit "Accept Exchange", class: "btn btn-primary" %>
+<% end %> 
+
+
     <p>
        Accepted: <%= @transaction.accepted%>   
     </p>
