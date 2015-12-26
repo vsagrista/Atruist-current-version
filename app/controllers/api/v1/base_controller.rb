@@ -12,36 +12,35 @@ class Api::V1::BaseController < ApplicationController
   end
 
   def show
-  	talent = Talent.where(id: params[:id])
-  	unless talent.empty?
-  		render :json => talent
-  	else 
-  		render :json => "No talent found"
-  	end
+    talent = Talent.where(id: params[:id])
+    unless talent.empty?
+      render :json => talent
+    else
+      render :json => "No talent found"
+    end
   end
 
   def cities
-  	render :json => User.all.collect! {|user| user.address}.collect {|address| address.split(",")[1]}	
+    render :json => User.all.collect! {|user| user.address}.collect {|address| address.split(",")[1]}
   end
 
-  def get_users_with_talents_in_city  
+  def get_users_with_talents_in_city
     users = User.where("address like ?", "%#{params[:city]}%")
     render :json => users.collect! {|user| user.talents}
   end
 
   def get_talents_for_city   # 1st call
-    render :json => Talent.where("city like ?", "%#{params[:city]}%")  
+    render :json => Talent.where("city like ?", "%#{params[:city]}%")
   end
 
-
   def get_top_rated_talents_for_city # 2nd call
-      talents = Talent.where(city: params[:city]).select{|talent| talent.name == params[:talent]}.sort_by{|talent| talent[:rating]} #.order('rating DESC')
-      render :json => top_talents_and_users =  
-      Array.new(talents.length).each_with_index.map { |x,index|  ## gets all talents for a user
-      [:user_name => User.find( talents[index].user_id ).name,  
-        :user_id   => User.find( talents[index].user_id ).id,
-        :found => talents[index]
-        ] }.reverse
+    talents = Talent.where(city: params[:city]).select{|talent| talent.name == params[:talent]}.sort_by{|talent| talent[:rating]} #.order('rating DESC')
+    render :json => top_talents_and_users =
+    Array.new(talents.length).each_with_index.map { |x,index|  ## gets all talents for a user
+      [:user_name => User.find( talents[index].user_id ).name,
+       :user_id   => User.find( talents[index].user_id ).id,
+       :found => talents[index]
+       ] }.reverse
   end
 
 

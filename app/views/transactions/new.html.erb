@@ -2,39 +2,38 @@
     <div class="row">
         <div class="col-md-6">
             <h2 class="name">Hey, <%= @user.name.capitalize %></h2>
-            <p>Get help from <%= @receiver.name.capitalize %> with <%= @talent.name %></p>  
+            <p>Get help from <%= @receiver.name.capitalize %> with <%= @talent.name %></p>
         </div>
         <div class="col-md-6">
             <div class="skills-logo-area">
                 <img class="skills-icon change" src="/assets/help.jpg">
-            		<h2><bold>Get Help</bold></h2>   
+                <h2><bold>Get Help</bold></h2>
             </div>
-       </div>
+        </div>
     </div>
 </div>
 <br>
 <div class="container">
-<%= form_for [@user,@talent,@transaction] do |f| %>
-<div class="form-group">
-<%= f.label "Subject" %>
-<%= f.text_field :subject, class: "form-control" %>
-</div>
-<div class="form-group">	
-<%= f.label "Minutes" %>
-<%= f.number_field :minutes, class: "form-control"  %>
-</div>
-
- <div class="form-group">
-<%= f.label "Date" %>
-<%= f.text_field :date, :class => "datepicker form-control"%>
-</div>
-<%=f.submit class: "btn btn-primary" %>
-<% end %>
+    <%= form_for [@user,@talent,@transaction] do |f| %>
+    <div class="form-group">
+        <%= f.label "Subject" %>
+        <%= f.text_field :subject, class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= f.label "Minutes" %>
+        <%= f.number_field :minutes, class: "form-control"  %>
+    </div>
+    <div class="form-group">
+        <%= f.label "Date" %>
+        <%= f.text_field :date, :class => "datepicker form-control"%>
+    </div>
+    <%=f.submit class: "btn btn-primary" %>
+    <% end %>
 </div>
 <script type="text/javascript">
-	
-$(function() {
-  $('.datepicker').datepicker();
-});
-</script>
+    
+    $(function() {
+    $('.datepicker').datepicker();
+    });
 
+</script>

@@ -21,7 +21,7 @@
             "security-signup-thumb" src=
             "/assets/thumb.png"></h1><%if @user.address.nil? %>
             <p class="security-address-p">You need to add your address to start
-            searching for other altruists! Click here:
+                searching for other altruists! Click here:
             <%= link_to "Add Address", users_address_path %></p><%end %>
             <hr>
             <div class="row">
@@ -31,18 +31,18 @@
                         <h2 class="dashboard-notifications-header">To
                         Accept (<%= get_not_accepted_transactions(@transactions_receiver).length %>) </h2>
                         <% get_not_accepted_transactions(@transactions_receiver).each do |transaction| %>
-                        <p id="dashboard-notifications-ul">Transacion id: 
-                        <%= transaction.id %>
-                        <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
+                        <p id="dashboard-notifications-ul">Transacion id:
+                            <%= transaction.id %>
+                            <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
                         </p>
                         <% end %>
                     </div>
                     <div class="dashboard-notifications-box">
                         <h2 class="dashboard-notifications-header">To Rate (<%= get_not_rated_transactions(@transactions_sender).length %>) </h2>
                         <% get_not_rated_transactions(@transactions_sender).each do |transaction| %>
-                        <p id="dashboard-notifications-ul">Transacion id: 
-                        <%= transaction.id %>
-                        <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
+                        <p id="dashboard-notifications-ul">Transacion id:
+                            <%= transaction.id %>
+                            <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
                         </p>
                         <% end %>
                     </div>
@@ -53,9 +53,9 @@
                         <h2 class="dashboard-notifications-header">Waiting
                         acceptance (<%= get_not_accepted_transactions(@transactions_sender).length %>) </h2>
                         <% get_not_accepted_transactions(@transactions_sender).each do |transaction| %>
-                        <p id="dashboard-notifications-ul">Transacion id: 
-                        <%= transaction.id %> 
-                         <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
+                        <p id="dashboard-notifications-ul">Transacion id:
+                            <%= transaction.id %>
+                            <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
                         </p>
                         <% end %>
                     </div>
@@ -63,9 +63,9 @@
                         <h2 class="dashboard-notifications-header">Waiting
                         rating (<%= get_not_rated_transactions(@transactions_sender).length %>) </h2>
                         <% get_not_rated_transactions(@transactions_sender).each do |transaction| %>
-                        <p id="dashboard-notifications-ul">Transacion id: 
-                        <%= transaction.id %>
-                         <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
+                        <p id="dashboard-notifications-ul">Transacion id:
+                            <%= transaction.id %>
+                            <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
                         </p>
                         <% end %>
                     </div>
