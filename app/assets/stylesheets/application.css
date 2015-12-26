@@ -360,10 +360,16 @@ hr {
 }
 
 /************************** START TRANSACTION  *****************/ 
-
+/*
 .transaction-button {
     width: 30%;
 }
+*/
+
+.transaction-buttons {
+    display: inline-block;
+}
+
 
 .safety-message {
     color: red;
@@ -376,6 +382,10 @@ hr {
 .cancel-button:hover {
     background: orange;
     border: red;
+}
+.accept-button, .cancel-button {
+    width: 150px;
+    margin-bottom: 2px;
 }
 
 
