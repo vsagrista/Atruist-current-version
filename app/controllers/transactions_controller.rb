@@ -29,8 +29,24 @@ class TransactionsController < ApplicationController
 
   end
 
+#10
   def update
-    binding.pry
+    #binding.pry
+    transaction = Transaction.find(params[:id])
+    if params[:commit] == "Accept Exchange"
+      flash[:notice] = "Exchange accepted!"
+      transaction.update(accepted: true)
+      redirect_to users_dashboard_path 
+    else 
+      if transaction.cancelation_count == 2
+        flash[:notice] = "You have cancelled twice, you cannot cancel again"
+        redirect_to :back
+      else
+        flash[:notice] = "Exchange cancelled!" 
+        transaction.update(cancelled: true, cancelation_count: transaction.cancelation_count+1)
+        redirect_to users_dashboard_path
+      end
+    end
   end
 
   private

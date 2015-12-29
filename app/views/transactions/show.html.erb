@@ -24,6 +24,7 @@
     <p>Subject: <%= @transaction.subject %> </p>
     <p> When:  <%= @transaction.date %> </p>
     <p> Minutes: <%= @transaction.minutes %> </p>
+    <% if @recipient == @user && !@transaction.accepted %>
     <div class="transaction-buttons">
         <%= form_for @transaction, :url => { :action => "update"} do |t| %>
         <%= t.hidden_field :accepted, :value => true %>
@@ -35,6 +36,7 @@
         <%= t.submit "Decline", class: "btn btn-primary cancel-button" %>
         <% end %>
     </div>
+    <% end %>
     <p>
         Accepted: <%= @transaction.accepted%>
     </p>
