@@ -29,7 +29,7 @@ class TransactionsController < ApplicationController
 
   end
 
-#10
+
   def update
     #binding.pry
     transaction = Transaction.find(params[:id])
