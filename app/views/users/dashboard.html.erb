@@ -46,6 +46,32 @@
                         </p>
                         <% end %>
                     </div>
+
+                    <!-- Done deals -->
+
+                    <h1 class="dashboard-notifications-label">DONE</h1>
+                    <div class="dashboard-notifications-box">
+                        <h2 class="dashboard-notifications-header">To
+                        Accept (<%= get_not_accepted_transactions(@transactions_recipient).length %>) </h2>
+                        <% get_not_accepted_transactions(@transactions_recipient).each do |transaction| %>
+                        <p id="dashboard-notifications-ul">Transacion id:
+                            <%= transaction.id %>
+                            <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
+                        </p>
+                        <% end %>
+                    </div>
+                    <div class="dashboard-notifications-box">
+                        <h2 class="dashboard-notifications-header">To Rate (<%= get_not_rated_transactions(@transactions_sender).length %>) </h2>
+                        <% get_not_rated_transactions(@transactions_sender).each do |transaction| %>
+                        <p id="dashboard-notifications-ul">Transacion id:
+                            <%= transaction.id %>
+                            <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
+                        </p>
+                        <% end %>
+                    </div>
+
+
+
                 </div>
                 <div class="col-md-6">
                     <h1 class="dashboard-notifications-label">SENT</h1>
@@ -69,6 +95,33 @@
                         </p>
                         <% end %>
                     </div>
+
+                    <!-- CANCELLED -->
+
+                    <h1 class="dashboard-notifications-label">CANCELLED</h1>
+                    <div class="dashboard-notifications-box">
+                        <h2 class="dashboard-notifications-header">To
+                        Accept (<%= get_not_accepted_transactions(@transactions_recipient).length %>) </h2>
+                        <% get_not_accepted_transactions(@transactions_recipient).each do |transaction| %>
+                        <p id="dashboard-notifications-ul">Transacion id:
+                            <%= transaction.id %>
+                            <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
+                        </p>
+                        <% end %>
+                    </div>
+                    <div class="dashboard-notifications-box">
+                        <h2 class="dashboard-notifications-header">To Rate (<%= get_not_rated_transactions(@transactions_sender).length %>) </h2>
+                        <% get_not_rated_transactions(@transactions_sender).each do |transaction| %>
+                        <p id="dashboard-notifications-ul">Transacion id:
+                            <%= transaction.id %>
+                            <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
+                        </p>
+                        <% end %>
+                    </div>
+
+
+
+
                 </div>
             </div><br>
             <div class="container dashboard-notifiactions-container">

@@ -12,6 +12,14 @@ module UsersHelper
     transaction.recipient
   end
 
+  def done_transactions(transaction)
+    transaction.where(accepted: true, rated: true)
+  end
+
+  def cancelled_transactions(transaction)
+    transaction.where(cancelled: true)
+  end
+
 =begin
 	case sent...waiting for somebody
 		not accepted: 
