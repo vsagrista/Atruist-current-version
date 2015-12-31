@@ -1,23 +1,25 @@
 module UsersHelper
 
   def get_not_accepted_transactions(transactions)
-    transactions.where(accepted: false)
+    transactions.select {|transaction| transaction.accepted == false}
   end
 
   def get_not_rated_transactions(transactions)
-    transactions.where(accepted: true, rated: false)
+    transactions.select {|transaction| transaction.accepted && !transaction.rated }
   end
 
   def get_recipient(transaction)
     transaction.recipient
   end
 
-  def done_transactions(transaction)
-    transaction.where(accepted: true, rated: true)
+  def get_done_transactions(user)
+    transactions = Transaction.where("sender_id = ? OR recipient_id = ?",user.id,user.id)
+    transactions.select {|transaction| transaction.accepted && transaction.rated }
   end
 
-  def cancelled_transactions(transaction)
-    transaction.where(cancelled: true)
+  def get_cancelled_transactions(user)
+    transactions = Transaction.where("sender_id = ? OR recipient_id = ?",user.id,user.id)
+    transactions.select {|transaction| transaction.cancelled }
   end
 
 =begin
