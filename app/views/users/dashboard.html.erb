@@ -27,36 +27,27 @@
             <div class="row">
                 <div class="col-md-6">
                     <h1 class="dashboard-notifications-label">INBOX</h1>
+
+                        <!-- Working here -->
                     <div class="dashboard-notifications-box">
                         <h2 class="dashboard-notifications-header">To
                         Accept (<%= get_not_accepted_transactions(@transactions_recipient).length %>) </h2>
-                        <% get_not_accepted_transactions(@transactions_recipient).each do |transaction| %>
-                        <p id="dashboard-notifications-ul">Transacion id:
-                            <%= transaction.id %>
-                            <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
-                        </p>
-                        <% end %>
+                        <%= render :partial =>  "transactions", :object => @transactions = get_not_accepted_transactions(@transactions_recipient) %>
                     </div>
+
+                    <!-- to here -->
+
+
                     <div class="dashboard-notifications-box">
                         <h2 class="dashboard-notifications-header">To Rate (<%= get_not_rated_transactions(@transactions_sender).length %>) </h2>
-                        <% get_not_rated_transactions(@transactions_sender).each do |transaction| %>
-                        <p id="dashboard-notifications-ul">Transacion id:
-                            <%= transaction.id %>
-                            <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
-                        </p>
-                        <% end %>
+                         <%= render :partial =>  "transactions", :object => @transactions = get_not_rated_transactions(@transactions_sender) %>
                     </div>
 
                     <!-- Done deals -->
 
                     <h1 class="dashboard-notifications-label">DONE</h1>
                     <div class="dashboard-notifications-box">
-                        <% get_done_transactions(@user).each do |transaction| %>
-                        <p id="dashboard-notifications-ul">Transacion id:
-                            <%= transaction.id %>
-                            <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
-                        </p>
-                        <% end %>
+                        <%= render :partial =>  "transactions", :object => @transactions = get_done_transactions(@user) %>
                     </div> <!-- Done -->
                 </div>
 
@@ -66,44 +57,42 @@
                     <div class="dashboard-notifications-box">
                         <h2 class="dashboard-notifications-header">Waiting
                         acceptance (<%= get_not_accepted_transactions(@transactions_sender).length %>) </h2>
-                        <% get_not_accepted_transactions(@transactions_sender).each do |transaction| %>
-                        <p id="dashboard-notifications-ul">Transacion id:
-                            <%= transaction.id %>
-                            <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
-                        </p>
-                        <% end %>
+                        <%= render :partial =>  "transactions", :object => @transactions = get_not_accepted_transactions(@transactions_sender) %>
+
                     </div>
                     <div class="dashboard-notifications-box">
                         <h2 class="dashboard-notifications-header">Waiting
                         rating (<%= get_not_rated_transactions(@transactions_recipient).length %>) </h2>
-                        <% get_not_rated_transactions(@transactions_recipient).each do |transaction| %>
-                        <p id="dashboard-notifications-ul">Transacion id:
-                            <%= transaction.id %>
-                            <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
-                        </p>
-                        <% end %>
+                         <%= render :partial =>  "transactions", 
+                         :object => @transactions = get_not_rated_transactions(@transactions_recipient) 
+                             
+                             %>
+                            <% # get_not_rated_transactions(@transactions_recipient) %>
                     </div>
 
                     <!-- CANCELLED -->
 
                     <h1 class="dashboard-notifications-label">CANCELLED</h1>
                     <div class="dashboard-notifications-box">
-                        <% get_cancelled_transactions(@user).each do |transaction| %>
-                        <p id="dashboard-notifications-ul">Transacion id:
-                            <%= transaction.id %>
-                            <%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
-                        </p>
-                        <% end %>
+                         <%= render :partial =>  "transactions", :object => @transactions =  
+                             get_cancelled_transactions(@user) %>
                     </div>
                     
 
                 </div>
             </div><br>
+
+
+            <!-- Charts -->
+
+
             <div class="container dashboard-notifiactions-container">
                 <h1>Statistics & Charts</h1>
                 
             </div>
+
             <hr>
+
             <div class="row">
                 <div class="col-md-4">
                     <h2 class="dashboard-notifications-label">TOP USERS</h2>

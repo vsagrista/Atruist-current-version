@@ -1,0 +1,7 @@
+
+<% @transactions.each do |transaction| %>
+<p id="dashboard-notifications-ul">Transacion id:
+	<%= transaction.id %>
+	<%= link_to "View", user_talent_transaction_path(@user, transaction.talents_id, transaction) %>
+</p>
+<% end %>

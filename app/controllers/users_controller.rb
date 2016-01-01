@@ -6,8 +6,10 @@ include UsersHelper
 
   def dashboard
     @user = current_user	
+    @transactions = Transaction.all
     @transactions_sender = Transaction.where(sender_id: current_user.id)
     @transactions_recipient = Transaction.where(recipient_id: current_user.id)
+    @not_rated = @transactions_recipient.select {|transaction| transaction.accepted && !transaction.rated }
   end
   
   def show
