@@ -12,36 +12,39 @@
 <body>
   <div class="navbar navbar-custom">
     <div class="navbar-inner navbar-custom">
-        <ul class="nav navbar-custom navbar-ul" id="nav">
+      <ul class="nav navbar-custom navbar-ul" id="nav">
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to 'Home', users_dashboard_path, class: "home" %>
+          <% else %>
+            <%= link_to 'Log In', new_user_session_path, class: "log-in" %>
             <li>
-              <% if user_signed_in? %>
-                <%= link_to 'Home', users_dashboard_path, class: "home" %>
-              <% else %>
-                <%= link_to 'Log In', new_user_session_path, class: "log-in" %> 
-                <li><a id="how-it-works" href="#first-step">How It Works</a></li>
-              <%end %>
+              <a id="how-it-works" href="#first-step">How It Works</a>
             </li>
-           <% if user_signed_in? %>
-
-              <li>
-                <% if current_user.address %>
-                <%= link_to "New Search",  users_talentsearch_path %>
-                <% else %>
-                <%= link_to "Add Address!",  users_address_path %>
-                <% end %>
-             </li>
-              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-              <li>
-              <%= link_to 'Sign out', destroy_user_session_path, method: 'get' %>
+          <%end %>
+        </li>
+        <% if user_signed_in? %>
+          <li>
+            <% if current_user.address %>
+            <%= link_to "New Search",  users_talentsearch_path %>
+            <% else %>
+            <%= link_to "Add Address!",  users_address_path %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "Settings", edit_user_path(current_user) %>
+          </li>
+          <li>
+            <%= link_to 'Sign out', destroy_user_session_path, method: 'get' %>
           </li>
         <% end %>
         <li class="logo-nav">
-          <h1 class="navbar-h1"> Altruist </h1>  
+          <h1 class="navbar-h1"> Altruist </h1>
                 <img class="navbar-img" src="/assets/sharing.jpg" >
-          </li>
-        </ul>
-      </div> 
-      <% flash.each do |key, value| %>
+        </li>
+      </ul>
+    </div>
+    <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %> error-messages devise">
           <a href="#" data-dismiss="alert" class="close">×</a>
           <ul class="devise-ul">
@@ -52,11 +55,6 @@
        </div>
     <% end %>
   </div>
-
-  
-  
-
 <%= yield %>
-
 </body>
 </html>

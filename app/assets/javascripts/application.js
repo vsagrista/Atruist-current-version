@@ -43,10 +43,10 @@ $(document).on('click', '.dashboard-notifications-header', function () {
 	$(this).siblings().toggle('slow');
 });
 
-$(document).on('mouseenter', '.skills-icon', function () {
-	$(this).siblings().effect('shake',{times:2})
-})
- 
+// $(document).on('mouseenter', '.skills-icon', function () {
+// 	$(this).siblings().effect('shake',{times:2})
+// })
+
 
 function processData(data, errors){
 	if (data.length>0){
