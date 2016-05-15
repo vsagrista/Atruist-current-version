@@ -21,7 +21,7 @@
                 </h2>
                 <img src="/assets/empty.jpg">
                 <br>
-                
+
             </div>
         <% else %>
         <h2 class="text-center">
@@ -31,11 +31,11 @@
 
                 <div class="list-group">
                     <div class="list-group-item">
-                    
+
                         <a aria-controls="collapse-description" aria-expanded="false"
                         class="list-group-item" data-toggle="collapse" href=
                         "#collapse-description<%= index %>" role="button"><i class=
-                        "fa fa-angle-right fa-2x pull-right"></i> 
+                        "fa fa-angle-right fa-2x pull-right"></i>
                         Talent: <%= talent.name %>
                         </a>
                         <div class="collapse" id="collapse-description<%= index %>">
@@ -55,3 +55,35 @@
             <% end %>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+  <div class="navbar navbar-custom">
+    <div class="navbar-inner navbar-custom">
+      <ul class="nav navbar-custom navbar-ul" id="nav">
+        <li>
+            <a class="home" href="/users/dashboard">Home</a>
+        </li>
+          <li>
+            <a href="/users/talentsearch">New Search</a>
+          </li>
+          <li>
+            <a href="/users/58/edit">Settings</a>
+          </li>
+          <li>
+            <a data-method="get" href="/users/sign_out">Sign out</a>
+          </li>
+        <li class="logo-nav">
+          <h1 class="navbar-h1"> Altruist </h1>
+                <img class="navbar-img" src="/assets/sharing.jpg">
+        </li>
+      </ul>
+    </div>
+  </div>

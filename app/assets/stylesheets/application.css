@@ -18,6 +18,12 @@
 
 /********************** Dashboard *********************/
 
+* { box-sizing: border-box; }
+
+body {
+    padding-top: 70px;
+}
+
 .devise-ul {
     list-style-type: none;
 }
@@ -62,7 +68,7 @@ hr {
 }
 
 .dashboard-my-talents-link{
-    
+
     color: white;
 }
 .dashboard-my-talents-link:hover{
@@ -103,9 +109,10 @@ hr {
     border: 2px solid black;
 }
 
+
 /******************* Home page - not signed in ***************/
 
-.navbar-custom > li{
+/*.navbar-custom > li{
     line-height: 45px;
 }
 
@@ -121,7 +128,7 @@ hr {
 
 .logo-nav > h1 {
     width: 45%;
-}
+}*/
 
 .error-messages {
     width: 50%;
@@ -156,7 +163,7 @@ hr {
     margin-bottom: -1.5%;
     background-color: rgba(0,0,0,0.75);
     padding: 1%;
-    font-size: 0.8em;  
+    font-size: 0.8em;
 }
 
 .sign-up-button {
@@ -227,23 +234,34 @@ hr {
     padding-bottom: 5px;
 }
 
-.navbar-brand {
-    float: right;
-    margin-right: 105px;
+.navbar .nav > li > a, h1{
+    line-height: 40px;
 }
 
-.navbar-img {
-    width: 95px;
-    float: right;
-    position: absolute;
-    top: 2px;
-    border-radius: 12px;
+.logo-img-div {
+    margin-right: 10px;
+    background-image: url("/assets/sharing.jpg");
+    background-size: cover;
+    margin-top: 1px;
+    height: 70px;
+    width: 115px;
+    border-radius: 15px;
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px;
+  width: auto;
 }
 
 .navbar-h1 {
     float: right;
     color:#4E4A4A;
     font-weight: lighter;
+    margin-right: 20px;
 }
 
 .instructions-container {
@@ -264,8 +282,8 @@ hr {
 
 .span  > h2{
     font-size: 2em;
-    
-} 
+
+}
 
 .span  > p {
     color: #2A8EA5;
@@ -278,13 +296,42 @@ hr {
 .join-jumbotron {
     background: url("/assets/background.jpg");
     color: #FFF;
-    padding: 10px; 
+    padding: 10px;
     text-align: center;
 }
 
 .join-btn{
     width: 150px;
     font-size: 1.2em
+}
+
+
+@media screen and (max-width:768px) {
+    body {
+        padding-top: 50px;
+
+    }
+    .navbar-nav, .navbar-nav ul {
+        margin: 0;
+    }
+    .navbar-nav li {
+        border-bottom: 1px solid grey;
+        text-align: center;
+    }
+    .navbar-nav li:nth-child(4) {
+        border: none;
+    }
+    .navbar-nav a {
+        padding: 0 !important;
+        display: inline;
+    }
+    .navbar-h1 {
+        margin: 5px;
+        margin-left: 30px;
+    }
+    .dropdown-btn {
+        margin-right: 30px;
+    }
 }
 
 /********************** ADDRESS PAGE *********************/
@@ -310,7 +357,7 @@ hr {
     padding: 5px;
     width: 5%;
 }
- 
+
 /*********************** EDIT PAGES ************************/
 
 .important-change > a{
@@ -359,7 +406,7 @@ hr {
     width: 5%;
 }
 
-/************************** START TRANSACTION  *****************/ 
+/************************** START TRANSACTION  *****************/
 /*
 .transaction-button {
     width: 30%;
@@ -419,7 +466,7 @@ hr {
     width: 700px;
     height: 500px;
     margin: 0 auto;
-    margin-bottom: 20px;    
+    margin-bottom: 20px;
 }
 
 .search-labels {
@@ -431,7 +478,7 @@ hr {
     opacity: 0.9;
     text-align: center;
     margin: 0 auto;
-    padding-bottom: 0;    
+    padding-bottom: 0;
 }
 
 .search-labels h1,h2{
@@ -459,7 +506,7 @@ hr {
     text-align: center;
     opacity: 0.9;
     margin-bottom: 3%;
-    
+
 }
 
 .header-row, .drop-show-p {
@@ -573,7 +620,7 @@ hr {
 .search-header {
     text-align: center;
     margin-top: 115px
-    
+
 }
 
 .cities-wrapper,.skills-wrapper > h2 {
@@ -582,7 +629,7 @@ hr {
 }
 .cities-wrapper,.skills-wrapper {
     text-align: center;
-} 
+}
 
 .input-search-page {
     height: 35px;
@@ -634,7 +681,7 @@ hr {
 
 .right-search-area {
     height: 648px;
-    
+
     opacity: 0.8;
 }
 
@@ -652,12 +699,12 @@ hr {
     color:black;
 }
 
-.rating { 
+.rating {
     background: grey;
 }
 
 .nothing-found {
-    color: red;   
+    color: red;
 }
 
 .map-div {
