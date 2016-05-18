@@ -445,6 +445,67 @@ hr {
     width: 5%;
 }
 
+/*********************** SIGN IN / SIGN UP *********************/
+
+/* Overrides device custom styles for views */
+
+.devise-body {
+    padding: 0;
+}
+
+.panel-default {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.panel-body {
+    width: 40%;
+    margin: 0 auto;
+    background: blanchedalmond;
+    opacity: 0.9;
+    border-radius: 2px;
+}
+
+.panel-body:hover {
+    opacity: 1;
+}
+
+.checkbox {
+    display: inline-block;
+    width: 100% !important;
+}
+
+.remember-me-check, .devise-label {
+    position: relative !important;
+    margin: 0 !important;
+    width: auto;
+}
+.devise-label > label {
+    padding: 0;
+}
+.devise-btn {
+    margin-top: 20px !important;
+    width: 160px;
+    padding: 8px;
+    font-size: 20px;
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
 /************************** START TRANSACTION  *****************/
 /*
 .transaction-button {
