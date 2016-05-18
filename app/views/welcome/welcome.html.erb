@@ -1,76 +1,77 @@
-<div id="myCarousel" class="carousel slide">
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="/assets/handy.jpg">
-      <div class="container">
-        <div class="carousel-caption carousel-div label">
-          <h1 class="carousel-h1">Need some help at home?</h1>
-          <p class="lead">Johny can help you get something fixed at your home. He's really good at handymanship. It will only cost you
-            some minutes once you sign up to our altruist project, totally free, of course!
-          </p>
-          <%= link_to "Join", new_user_registration_path, class: "btn btn-large btn-primary sign-up-button" %>
+<html class='not-signed-in'>
+  <body>
+    <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="/assets/handy.jpg">
+          <div class="container">
+            <div class="carousel-caption carousel-div label">
+              <h1 class="carousel-h1">Need some help at home?</h1>
+              <p class="lead">Johny can help you get something fixed at your home. He's really good at handymanship. It will only cost you
+                some minutes once you sign up to our altruist project, totally free, of course!
+              </p>
+              <%= link_to "Join", new_user_registration_path, class: "btn btn-large btn-primary sign-up-button" %>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="/assets/tutor.jpg" alt="">
+          <div class="container">
+            <div class="carousel-caption carousel-div label">
+              <h1 class="carousel-h1">Looking for a tutor?</h1>
+              <p class="lead">Philip can help your kid rock in math or English. He'll be happy to be paid in in minutes from your minutes bank that you can use for payments with Altruist.</p>
+              <%= link_to "Join", new_user_registration_path, class: "btn btn-large btn-primary sign-up-button" %>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="/assets/mechanic.jpg" alt="">
+          <div class="container">
+            <div class="carousel-caption carousel-div label">
+              <h1 class="carousel-h1">Maybe your car needs an oil change?</h1>
+              <p class="lead">James will be happy to get some minutes by fixing your car. He is one of the many people that are using Altruist helping others by  sharing something he can do with others.</p>
+              <%= link_to "Join", new_user_registration_path, class: "btn btn-large btn-primary sign-up-button" %>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="item">
-      <img src="/assets/tutor.jpg" alt="">
-      <div class="container">
-        <div class="carousel-caption carousel-div label">
-          <h1 class="carousel-h1">Looking for a tutor?</h1>
-          <p class="lead">Philip can help your kid rock in math or English. He'll be happy to be paid in in minutes from your minutes bank that you can use for payments with Altruist.</p>
-          <%= link_to "Join", new_user_registration_path, class: "btn btn-large btn-primary sign-up-button" %>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"></a>
+      </div><!-- carousel -->
+      <div class="container instructions-container">
+        <div class="row inner-instructions">
+          <div class="span">
+            <img id="first-step" src="/assets/one.png">
+            <h2>Share your Talent</h2>
+            <p>Do you play the piano? Can teach how to dance? Or maybe how to cook emapanadas? Great, there are lots of people looking for talented people like you, thanks to our platform you can exhange your time with others.</p>
+          </div>
+          <div class="span">
+            <img src="/assets/two.png">
+            <h2>Where you'll share</h2>
+            <p>You will have to create a profile, explain what you can do, where you operate and the times of the day that suit you better. You'll earn time as you help other altruists. The time you spend helping them will be added to your balance with comments and reviews.</p>
+          </div>
+          <div class="span">
+            <img src="/assets/three.png">
+            <h2>Become an Altruist</h2>
+            <p>To start enjoying this idea, please sign up and follow the registration steps. The more you participate the more minutes you will have. Invite as many people as possible so more can enjoy our awesome project! </p>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="item">
-      <img src="/assets/mechanic.jpg" alt="">
-      <div class="container">
-        <div class="carousel-caption carousel-div label">
-          <h1 class="carousel-h1">Maybe your car needs an oil change?</h1>
-          <p class="lead">James will be happy to get some minutes by fixing your car. He is one of the many people that are using Altruist helping others by  sharing something he can do with others.</p>
-          <%= link_to "Join", new_user_registration_path, class: "btn btn-large btn-primary sign-up-button" %>
+        <hr class="featurette-divider">
+        <!-- jumbotron -->
+        <div class="container jumbotron-container">
+          <div class="jumbotron join-jumbotron">
+            <h1>Welcome!</h1>
+            <p>Click on the button to join.</p>
+            <p>
+              <%= link_to "Join", new_user_registration_path, class: "btn btn-success btn-lg join-btn " %>
+            </p>
+          </div>
         </div>
+        <hr class="featurette-divider">
+        <footer>
+          <p class="pull-right"><a id="back-to-top" href >Back to top</a></p>
+          <p>© 2015 My Company, Inc. · Privacy · Terms</p>
+        </footer>
       </div>
-    </div>
-  </div>
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev"></a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next"></a>
-  </div><!-- carousel -->
-  <div class="container instructions-container">
-    <div class="row inner-instructions">
-      <div class="span">
-        <img id="first-step" src="/assets/one.png">
-        <h2>Share your Talent</h2>
-        <p>Do you play the piano? Can teach how to dance? Or maybe how to cook emapanadas? Great, there are lots of people looking for talented people like you, thanks to our platform you can exhange your time with others.</p>
-
-      </div>
-      <div class="span">
-        <img src="/assets/two.png">
-        <h2>Where you'll share</h2>
-        <p>You will have to create a profile, explain what you can do, where you operate and the times of the day that suit you better. You'll earn time as you help other altruists. The time you spend helping them will be added to your balance with comments and reviews.</p>
-
-      </div>
-      <div class="span">
-        <img src="/assets/three.png">
-        <h2>Become an Altruist</h2>
-        <p>To start enjoying this idea, please sign up and follow the registration steps. The more you participate the more minutes you will have. Invite as many people as possible so more can enjoy our awesome project! </p>
-
-      </div>
-    </div>
-    <hr class="featurette-divider">
-    <!-- jumbotron -->
-    <div class="container jumbotron-container">
-      <div class="jumbotron join-jumbotron">
-        <h1>Welcome!</h1>
-        <p>Click on the button to join.</p>
-        <p>
-          <%= link_to "Join", new_user_registration_path, class: "btn btn-success btn-lg join-btn " %>
-        </p>
-      </div>
-    </div>
-    <hr class="featurette-divider">
-    <footer>
-      <p class="pull-right"><a id="back-to-top" href >Back to top</a></p>
-      <p>© 2015 My Company, Inc. · Privacy · Terms</p>
-    </footer>
-  </div>
+    </body>
+  </html>

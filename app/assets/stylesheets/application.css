@@ -22,16 +22,27 @@
 
 body {
     padding-top: 70px;
+    background: transparent;
+    font-family: 'Poiret One';
+    font-size: 18px;
+}
+
+html {
+   background: url(/assets/grey-background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .devise-ul {
     list-style-type: none;
 }
 
-.dashboard-wrapper{
-    background: url(/assets/teamwork.jpg);
-    height: 700px;
-}
+/*.dashboard-wrapper{
+    background: url(/assets/grey-background.jpg);
+/*    height: 700px;
+}*/
 .not-signed-in {
     background: none;
 }
@@ -68,7 +79,6 @@ hr {
 }
 
 .dashboard-my-talents-link{
-
     color: white;
 }
 .dashboard-my-talents-link:hover{
@@ -310,6 +320,9 @@ hr {
     body {
         padding-top: 50px;
 
+    }
+    .navbar-header {
+        visibility: visible;
     }
     .navbar-nav, .navbar-nav ul {
         margin: 0;

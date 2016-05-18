@@ -1,10 +1,10 @@
 <head>
-  <%= javascript_include_tag 'searchInApi.js' %>
   <script type="text/javascript">
     var cities = <%= raw @cities %>;
     var talents = <%= raw @talents %>;
     var currentUserId = <%= raw @user.id %>;
   </script>
+  <%= javascript_include_tag 'searchInApi.js' %>
 </head>
 
 <div class="wrapper skill-icon-area-container">
@@ -24,7 +24,15 @@
 <br>
 <div class="container">
 	<div class="ui-widget">
-	    <label for="tags">Search for a city:</label><img class="city-search-icon" src="/assets/city-bcn.png"><br> <input class="search-field" id=
+	    <label for="tags">Search for a city:</label>
+        <img class="city-search-icon" src="/assets/london.png">
+        <img class="city-search-icon" src="/assets/paris.png">
+        <img class="city-search-icon" src="/assets/barcelona.png">
+        <img class="city-search-icon" src="/assets/amsterdam.png">
+        <img class="city-search-icon" src="/assets/berlin.png">
+        <img class="city-search-icon" src="/assets/san-francisco.png">
+        <img class="city-search-icon" src="/assets/dublin.png">
+        <br> <input class="search-field" id=
 	    "tags">
 	</div>
 </div>
