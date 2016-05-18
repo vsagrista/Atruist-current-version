@@ -68,8 +68,8 @@ $(document).on('click',("#how-it-works"), function(event) {
     $('html, body').animate({scrollTop: 660},1000);
 });
 
-$(document).on('click',("#back-to-top"), function(event) {
-    $('html, body').animate({scrollTop: 0}, 1000, 'swing');
+$(document).on('click',("#back-to-top"), function(event) { event.preventDefault();
+    $('html, body').animate({scrollTop:$('#how-it-works').position().top}, 'slow');
 });
 
  $(document).ready(function() {
