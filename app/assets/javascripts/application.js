@@ -20,6 +20,10 @@
 //= require fullcalendar
 
 
+$(document).ready(function(){
+    $('.carousel').carousel('pause');
+})
+
 
 $(document).ready(function(){
 	setTimeout(function(){

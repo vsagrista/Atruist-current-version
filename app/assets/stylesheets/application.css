@@ -43,6 +43,7 @@ html {
     background: url(/assets/grey-background.jpg);
 /*    height: 700px;
 }*/
+
 .not-signed-in {
     background: none;
 }
@@ -221,6 +222,12 @@ hr {
     text-align: center;
 }
 
+/******* Carousel *******/
+
+.carousel-info {
+    height: 200px;
+}
+
 .carousel-h1 {
     margin-top: -5px;
     margin-bottom: 5px;
@@ -230,7 +237,10 @@ hr {
 .carousel p  {
     color:silver;
     font-size: 1.5em;
+    white-space: normal;
 }
+
+/**************************/
 
 .car-div {
     height: 110px;
@@ -280,22 +290,17 @@ hr {
     width: 70%;
 }
 
-.span4{
-    width: 30%;
-
-}
-
 .inner-instructions {
     padding-bottom: 40px;
     font-size: 1.5em;
 }
 
-.span  > h2{
+.inner-info > h2 {
     font-size: 2em;
 
 }
 
-.span  > p {
+.inner-info > p {
     color: #2A8EA5;
 }
 
@@ -344,6 +349,27 @@ hr {
     }
     .dropdown-btn {
         margin-right: 30px;
+    }
+}
+
+
+@media screen and (max-width: 992px) {
+    .instructions-container {
+        text-align: center;
+    }
+
+    .inner-instructions {
+        width: 100%;
+    }
+
+    .inner-info > h2 {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
+    .inner-info > p {
+        font-size: 25px;
+        margin-bottom: 50px;
     }
 }
 
