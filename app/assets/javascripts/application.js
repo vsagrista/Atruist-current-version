@@ -18,7 +18,7 @@
 //= require turbolinks
 //= require moment
 //= require fullcalendar
-//= require_tree .
+
 
 $(document).ready(function(){
 	setTimeout(function(){
@@ -35,18 +35,9 @@ $(document).on('mouseleave', '#security-signup-icon', function () {
 	$('.security-signup-p').fadeToggle('slow');
 });
 
-// $(document).ready(function () {
-// 	$(".dashboard-notifications-box > p").hide();
-// });
-
 $(document).on('click', '.dashboard-notifications-header', function () {
 	$(this).siblings().toggle('slow');
 });
-
-// $(document).on('mouseenter', '.skills-icon', function () {
-// 	$(this).siblings().effect('shake',{times:2})
-// })
-
 
 function processData(data, errors){
 	if (data.length>0){
@@ -71,14 +62,13 @@ $(document).on('input','#name', function () {
 	}
 });
 
-
 $(document).on('click',("#how-it-works"), function(event) {
-    $('html, body').animate({scrollTop: $("#first-step").offset().top}, 1000);
-    return false;
+    event.preventDefault();
+    $('html, body').animate({scrollTop: 660},1000);
 });
+
 $(document).on('click',("#back-to-top"), function(event) {
-    $('html, body').animate({scrollTop: $(".log-in").offset().top}, 1000);
-    return false;
+    $('html, body').animate({scrollTop: 0}, 1000, 'swing');
 });
 
  $(document).ready(function() {
@@ -86,8 +76,9 @@ $(document).on('click',("#back-to-top"), function(event) {
       interval: 5000
     })
 });
+
 $(function() {
-  $('.datepicker').datepicker();
+    $('.datepicker').datepicker();
 });
 
 
