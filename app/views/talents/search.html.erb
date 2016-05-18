@@ -4,7 +4,9 @@
     var talents = <%= raw @talents %>;
     var currentUserId = <%= raw @user.id %>;
   </script>
-  <%= javascript_include_tag 'searchInApi.js' %>
+  <% content_for :javascript do %>
+    <%= javascript_include_tag 'searchInApi.js' %>
+  <% end %>
 </head>
 
 <div class="wrapper skill-icon-area-container">
@@ -60,3 +62,4 @@
         </div>
     </div>
 </div>
+<%= yield :javascript %>
