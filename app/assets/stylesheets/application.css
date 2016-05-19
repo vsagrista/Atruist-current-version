@@ -505,13 +505,15 @@ hr {
 
 @media screen and (max-width: 768px) {
     .devise-html {
+      height: 100%;
+      width: 100%;
       background: url(/assets/grey-background.jpg) no-repeat center center fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
-
     }
+
     .panel-body, .panel-default {
         width: 100%;
     }
