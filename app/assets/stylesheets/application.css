@@ -35,6 +35,12 @@ html {
   background-size: cover;
 }
 
+@media screen and (max-width:768px) {
+    html {
+        background: white;
+    }
+}
+
 .devise-ul {
     list-style-type: none;
 }
@@ -495,6 +501,28 @@ hr {
     padding: 8px;
     font-size: 20px;
     display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .devise-html {
+      background: url(/assets/grey-background.jpg) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+
+    }
+    .panel-body, .panel-default {
+        width: 100%;
+    }
+    .checkbox {
+        display: inline-block;
+        width: 80% !important;
+        margin: 0 auto;
+    }
+    .panel-body a {
+        display: block;
+    }
 }
 
 

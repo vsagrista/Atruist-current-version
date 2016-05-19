@@ -24,7 +24,6 @@ $(document).ready(function(){
     $('.carousel').carousel('pause');
 })
 
-
 $(document).ready(function(){
 	setTimeout(function(){
     	$('.error-messages').fadeToggle("slow");
@@ -85,8 +84,3 @@ $(document).on('click',("#back-to-top"), function(event) { event.preventDefault(
 $(function() {
     $('.datepicker').datepicker();
 });
-
-
-
-
-
