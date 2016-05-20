@@ -12,7 +12,7 @@
       <div class="skills-logo-area">
         <img class="skills-icon" src="/assets/map-pointer.jpg">
         <% if @user.address.nil? %>
-        <h2><bold>Add Address</bold></h2>
+        <h2><bold>Find your address</bold></h2>
         <% else %>
         <h2><bold>Address Change</bold></h2>
         <% end %>
@@ -22,7 +22,7 @@
 </div>
 <div class="wrapper dashboard-wrapper address">
   <div class="container dashboard-notifiactions-container address-container">
-    <h1>Address Search
+    <h1>Street, city and country (no numbers)
     <img  src="/assets/lens.png">
     <img src="/assets/info-4.png" id="security-signup-icon">
     </h1>
@@ -36,12 +36,12 @@
       <button id="submit" type="button" class="btn btn-primary search-address">
       <img  src="/assets/lens.png">
       </button>
-      <%= f.submit "Save", id: "save-address",
+      <%= f.submit "Save", id: "save-address", :disabled => true,
       class: "btn btn-primary save-address" %>
       <% end %>
     </div>
   </div>
-  <div id="map" style="width:47%; border-radius: 2%"></div>
+  <div id="map" style="width:50%; border-radius: 2%"></div>
 </div>
 <script>
 
@@ -67,6 +67,13 @@ center: myLatLng
 	document.getElementById('submit').addEventListener('click', function() {
 		geocodeAddress(geocoder, map);
 	});
+  $(document).keypress(function(event){
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if(keycode == '13'){
+        geocodeAddress(geocoder, map); 
+        setTimeout(function(){ checkReadyToSave() }, 1000); 
+    }
+  })
 }
 
 
@@ -77,10 +84,7 @@ function geocodeAddress(geocoder, resultsMap) {
       resultsMap.setCenter(results[0].geometry.location);
       clearMarkers();
       addMarker(results[0].geometry.location)
-      }
-     // else {
-     //   alert('Geocode was not successful for the following reason: ' + status);
-     //   }
+    }
   });
 }
 
@@ -115,15 +119,54 @@ function deleteMarkers() {
   markers = [];
 }
 
-$('#address').keypress(function() {
-    var address = this.value;
-    $(".dDimension:contains('" + address + "')").css("display","block");
-    if (address.split(",").length == 3){
-    	$('#save-address').prop('disabled', false);
-    } else {
-      $('#save-address').prop('disabled', true);
+function addressHasCorrectFormat() {
+  var enteredAddress = $('#address').val();
+  return enteredAddress.split(",").length == 3;
+}
+
+function markerIsPresent() {
+  return markers.length > 0;
+}
+
+function makeSaveButtonClickable() {
+  $('#save-address').prop('disabled', false);
+  $('#save-address').removeClass('btn-primary');
+  $('#save-address').addClass('btn-success');
+}
+
+function makeSaveBtnUnclickable() {
+  $('#save-address').prop('disabled', true);
+  $('#save-address').removeClass('btn-success');
+  $('#save-address').addClass('btn-primary');
+}
+
+function checkReadyToSave() {
+  if (markerIsPresent()) {
+    if(addressHasCorrectFormat()) {
+      makeSaveButtonClickable();
     }
-});
+    else {
+      alert('Incorrect format')
+    }
+  }
+}
+
+$('#address').keypress(function() {
+  deleteMarkers();
+  makeSaveBtnUnclickable();
+})
+
+$('#address').keyup(function(event) {
+  if(event.keyCode == 8) {
+    deleteMarkers();
+    makeSaveBtnUnclickable();
+  }
+})
+
+$('#submit').on('click', function(){
+  setTimeout(function(){ checkReadyToSave() }, 1000);
+})
+
 
 </script>
 <script async defer

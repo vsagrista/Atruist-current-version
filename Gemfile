@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'faker'
 
-gem 'rubocop'
+#gem 'rubocop'
 
 group :production do
   gem 'rails_12factor'
