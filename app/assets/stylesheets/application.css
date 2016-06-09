@@ -20,6 +20,20 @@
 
 * { box-sizing: border-box; }
 
+.panel-default {
+    border: 0;
+}
+
+.flex-styling {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.expand {
+    width: 100%;
+}
+
 body {
     padding-top: 70px;
     background: transparent;
@@ -331,7 +345,6 @@ hr {
 @media screen and (max-width:768px) {
     body {
         padding-top: 50px;
-
     }
     .navbar-header {
         visibility: visible;
@@ -504,7 +517,7 @@ hr {
 }
 
 @media screen and (max-width: 768px) {
-    .devise-html {
+    .devise-html, .not-signed-in {
       height: 100%;
       width: 100%;
       background: url(/assets/grey-background.jpg) no-repeat center center fixed;
@@ -538,11 +551,6 @@ hr {
 
 
 /************************** START TRANSACTION  *****************/
-/*
-.transaction-button {
-    width: 30%;
-}
-*/
 
 .transaction-buttons {
     display: inline-block;
@@ -566,6 +574,55 @@ hr {
     margin-bottom: 2px;
 }
 
+/******************* ALERT MESSAGES *************************/
+/*flash*/
+.alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-alert {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+    margin-top: 70px;
+    margin-bottom: -140px;
+ }
+
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+.alert-notice {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+ .alert-danger {
+    margin-top: 70px;
+    margin-bottom: -100px;
+ }
+
+
+@media screen and (max-width:768px) {
+    .alert-alert {
+        width: 100%;
+        margin-bottom: -50px;
+        margin-top: 50px;
+    }
+    .alert-danger {
+        margin-top: 50px;
+        margin-bottom: -100px;
+    }
+}
 
 /************************ REST ******************************/
 
@@ -696,18 +753,15 @@ hr {
     text-align: center;
 }
 .skill-icon-area-container {
-    height: 80%;
-    background: url(/assets/teamwork.jpg);
     text-align: center;
-    margin: 0;
     background: rgba(14, 140, 116, 0.8);
     margin: 0;
     padding: 2%;
-    font-size: 1.2em;
+    font-size: 20px;
     color:white;
 }
 /*@media (max-width: 600px) {
-  .skill-icon-area-container {
+  .skill-icon-area-container flex-styling {
     height: 300px;
 }*/
 
@@ -727,10 +781,6 @@ hr {
     margin: 2%;
     font-weight: lighter;
     font-size: 4em;
-}
-
-.name {
-    font-size: 3em;
 }
 
 .awaiting-to-rate {

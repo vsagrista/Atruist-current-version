@@ -8,13 +8,13 @@
 User.destroy_all
 Talent.destroy_all
 talents = ["Cooking", "English Lessons", "Paining", "Math Lessons", "Coding Lessons"]
-5.times do 
+emails = ['test1@test.com','test2@test.com','test3@test.com','test4@test.com','test5@test.com']
+5.times do |i|
 	User.create(
 		name: Faker::Name.name, 
-		email: Faker::Internet.email, 
-		password: "12345678",
-		address: "#{Faker::Address.street_name}, #{Faker::Address.city}, #{Faker::Address.country}")
-	Talent.create(name: talents.sample, description: Faker::Lorem.sentence, city: User.last.address.split(",")[1].split(" ")[0], user_id: User.last.id)
+		email: emails[i], 
+		password: "12345678")
+	Talent.create(name: talents.sample, description: Faker::Lorem.sentence,  user_id: User.last.id)
 end
 
 
